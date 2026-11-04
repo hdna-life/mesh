@@ -1,0 +1,3 @@
+export function targets(ir:any){
+ const result:any[]=[];for(let i=0;i<(ir?.operations??[]).length;i++){const op=ir.operations[i];if(!op.idempotency)continue;const field=ir.entities.find((e:any)=>e.name===op.entity)?.fields.find((f:any)=>f.name===op.idempotency.field);if(field&&!field.unique)result.push({code:'idempotency_constraint_conflict',roles:['Constraint','Transaction'],questions:{Constraint:'unique_'+op.entity+'_'+field.name,Transaction:'idempotency_'+i},diagnostic:'Existing IR invariant: the selected idempotency key must be declared unique. Reconsider your own original decision; do not assume another expert is correct.'});}return result;
+}

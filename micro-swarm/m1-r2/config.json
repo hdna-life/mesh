@@ -1,0 +1,35 @@
+{
+  "milestone": "M1-r2 — Jev-Orchestrated 1B Experts",
+  "worker_model": "@cf/meta/llama-3.2-1b-instruct",
+  "router_model": "typesafe/jev-1.14",
+  "max_worker_calls": 160,
+  "worker_output_tokens": 32,
+  "worker_seed": 42,
+  "max_repairs": 2,
+  "cloudflare_daily_neuron_cap": 5000,
+  "openrouter_cost_cap_usd": 0.05,
+  "max_router_requests": 12,
+  "single_run": true,
+  "ready_groups": [
+    [
+      "Entity",
+      "Field"
+    ],
+    [
+      "Relationship",
+      "Constraint",
+      "Operation"
+    ]
+  ],
+  "deterministic_priority": [
+    "Entity",
+    "Field",
+    "Relationship",
+    "Constraint",
+    "Operation",
+    "Transaction",
+    "HTTP"
+  ],
+  "semantic_sources": "unchanged M1 public requirement/symbol dictionary and choice grammar; never control IR",
+  "routing_payload": "role/status/count/dependency metadata only; NO requirements/questions/answers/IR values"
+}

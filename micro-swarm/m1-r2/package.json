@@ -1,0 +1,13 @@
+{
+  "name": "mesh-m1-r2",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts",
+    "freeze": "node src/cli.ts freeze",
+    "run": "node src/cli.ts run"
+  }
+}

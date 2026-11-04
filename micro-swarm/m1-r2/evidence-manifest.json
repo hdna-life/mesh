@@ -1,0 +1,33 @@
+{
+  "version": "M1-r2",
+  "files": {
+    ".gitignore": "18ef7ccbd47912bdae09e034e90e357fd6971ab2e09a45ce53350e6fc5dd024d",
+    "PROTOCOL.md": "87807622f1f0a68d592493add6a43bed0807679378ef18cd4a66a65e22d9c644",
+    "README.md": "d0835cf6122b2e172c8a79d69a82e9caaabcfbec8624ea8fce4f6ec897c62e54",
+    "RESULTS.json": "e410b1346321f0178c0da0973d7c957adc89e0798563b3fe7b725becca7ba2f8",
+    "SUMMARY.md": "b5f910f37af460ab7e625363b42a0f8ca50f5770fc06432fafe241259d86330f",
+    "config.json": "258a50fd6afd6005de9296677b27ca99a9937d004d6b4a9722a9291febb50f0f",
+    "frozen.json": "ec62fb0733d950db6898fa68f9a6f0590d34ea6c23b59e2428f26a4dd5155c1e",
+    "package.json": "202cea71e308ba8451ab1a732bda681967c2d4ca89b16f43db12b1cae8b281d0",
+    "previous-hashes.json": "7b9ee99ce422f13cd8c5ed30e48de97bbb555a5dea74ab6e843458182abd8e6f",
+    "runs/1793755570231/graph.json": "21f28740c4ba04de2e0cb609a578e4f32cb154e46d4a89f5fbfb7a0e123b165e",
+    "runs/1793755570231/initial.json": "9704eac1fe950aa5f758c03fa1aa6dec012ad03c808e5943f13d14749c22fdf4",
+    "runs/1793755570231/routing.json": "584d97119decf7dd435b84bfa645a31bd92e7dc047f87a14312ab7e09494c36f",
+    "runs/1793755570231/summary.json": "1eeb253bb1f3b956cdf85ed57bd831fd7647e5c0fcb800e49cd3dbdff1f5714a",
+    "runs/1793755570231/trace.jsonl": "7e2d20e3f43cffdd0f4b2481de55d68eee73eaa9d24eb80ccf88d3efd825ef04",
+    "runs/1793755570231/worker-decisions.json": "7225ad409103501d9060b1d4147201dae076c3397790a21a24f692e121ed5d0b",
+    "runs/provider.jsonl": "643042b4e6f90bc6ea1216954a6e833f599601829757a090bfe1348da64c0460",
+    "src/cli.ts": "26d3c5971e79d30fa0236f69bbc113e077352cd23466b1d110563fd2a5c84bb8",
+    "src/conflicts.ts": "a7b92fc0ce02c2ed3b586fe9868d7db3d48e1db310aa7490fb80200d1bba07be",
+    "src/decisions.ts": "e3301567825f08a4158abf20d211d3fc06ff34ced17a3fa07515053f5912db36",
+    "src/router.ts": "9f4a31662de4e1e17f3a5515bc031466f49dd94b120f7896ec6671be8a48e121",
+    "src/run.ts": "114208c3437cfb2b665a219f65818303022bebdbe1379afdaa7c3691be540333",
+    "src/worker.ts": "4ad11661740a0575cc53330335d0ce418b2dd2f40ed090ab249464b5df905d5e",
+    "tests/adapters.test.ts": "e688c113bd535cb09a22783f2f24a059fc16bad8c91cd4f5dc2b4d9c9ddc0301",
+    "validation-results.json": "f44103fb57b5e0aeb5d244d28c5504197f9d625e13996a0c371859a27c969216"
+  },
+  "previous_unchanged": true,
+  "single_actual_run": true,
+  "full_success": false,
+  "archive_sha256": "12b031f5405144c0530a1807ac76fd033f2541fd63124804c4b235c6891dbcab"
+}

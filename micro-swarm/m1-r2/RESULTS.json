@@ -1,0 +1,71 @@
+{
+  "milestone": "M1-r2 — Jev-Orchestrated 1B Experts",
+  "run_directory": "/Users/berdincozer/Desktop/mesh/micro-swarm/m1-r2/runs/1793755570231",
+  "coordinator_decisions": 1,
+  "coordinator_true_alternative_routes": 1,
+  "coordinator_different_from_deterministic": 0,
+  "forced_routes": 3,
+  "expert_response_attempts": 6,
+  "expert_distinct_decisions": 3,
+  "expert_valid_resolved_decisions": 3,
+  "expert_unresolved_decisions": 0,
+  "requested_but_missing_decisions": 19,
+  "not_yet_generated_later_decisions": "unknown; later dependent roles may not have been materialized",
+  "conflicts": [],
+  "repairs": 2,
+  "ir_complete": false,
+  "compiler_created_application": false,
+  "backend_started": false,
+  "full_success": false,
+  "passed_tests": 0,
+  "executed_tests": 0,
+  "tests": [],
+  "calls": {
+    "cloudflare": 6,
+    "cloudflare_adapter_attempts": 6,
+    "openrouter": 1,
+    "total": 7
+  },
+  "tokens": {
+    "cloudflare_input": 4434,
+    "cloudflare_output": 12,
+    "openrouter_input": 439,
+    "openrouter_output": 31
+  },
+  "cost": {
+    "openrouter_actual_usd": 1.8438e-05,
+    "openrouter_reserved_usd": 6.5478e-05,
+    "cloudflare_reported_neurons": 11.114397151395679,
+    "cloudflare_price_equivalent_usd": 0.00012213,
+    "cloudflare_billing": "Workers Free confirmed locally; token-price equivalent is not an invoice; other account usage unknown"
+  },
+  "elapsed_ms": 5959,
+  "first_real_bottleneck": {
+    "layer": "worker_protocol",
+    "role": "Field",
+    "question": "type_products_id"
+  },
+  "jev_semantic_decisions": 0,
+  "compiler_and_verifier_changed": false,
+  "audit": {
+    "previous_experiments_unchanged": true,
+    "compiler_ir_verifier_unchanged": true,
+    "coordinator_payload_scheduling_only": true,
+    "invalid_worker_response_attempts": 3,
+    "failed_question": "type_products_id",
+    "failed_allowed_keys": [
+      "integer",
+      "text",
+      "boolean",
+      "unsupported"
+    ],
+    "failed_raw_replies": [
+      "id",
+      "id",
+      "id"
+    ],
+    "missing_count_definition": "22 initially queued unique questions minus 3 valid decisions = 19; later dependent decisions not materialized and not assigned a guessed count.",
+    "routing_comparison": "Jev selected Entity from genuinely ready Entity/Field alternatives, matching deterministic priority; no counterfactual semantic inference rerun.",
+    "repairs_definition": "two owner-targeted retries; deterministic singleton routes not counted as Jev choices."
+  }
+}
