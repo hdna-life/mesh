@@ -1,0 +1,99 @@
+{
+  "source": "human: M0.2 interface contract; not solution code",
+  "schema": {
+    "tables": {
+      "products": {
+        "columns": {
+          "id": "INTEGER",
+          "sku": "TEXT",
+          "name": "TEXT",
+          "stock": "INTEGER"
+        },
+        "primary_key": "id",
+        "unique": [
+          "sku"
+        ]
+      },
+      "reservations": {
+        "columns": {
+          "id": "INTEGER",
+          "product_id": "INTEGER",
+          "quantity": "INTEGER",
+          "request_key": "TEXT",
+          "status": "TEXT"
+        },
+        "primary_key": "id",
+        "unique": [
+          "request_key"
+        ]
+      }
+    },
+    "foreign_keys": [
+      {
+        "table": "reservations",
+        "column": "product_id",
+        "ref_table": "products",
+        "ref_column": "id"
+      }
+    ]
+  },
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/products"
+    },
+    {
+      "method": "GET",
+      "path": "/products"
+    },
+    {
+      "method": "GET",
+      "path": "/products/<int>"
+    },
+    {
+      "method": "POST",
+      "path": "/reservations"
+    },
+    {
+      "method": "GET",
+      "path": "/reservations"
+    },
+    {
+      "method": "POST",
+      "path": "/reservations/<int>/cancel"
+    }
+  ],
+  "validation_functions": [
+    "validate_product",
+    "validate_reservation",
+    "validate_cancel"
+  ],
+  "validation_interface": "Each function accepts exactly one JSON-compatible data argument. Return (normalized_dict, None) on success or (None, nonempty_error_string) on invalid input. Product normalizes name.strip(); no DB access or HTTP response creation. Reservation validation concerns shape/types/bounds only, not DB existence/stock/idempotency. Cancel accepts exactly {}. Never mutate input.",
+  "request_fields": {
+    "POST /products": [
+      "sku",
+      "name",
+      "stock"
+    ],
+    "POST /reservations": [
+      "product_id",
+      "quantity",
+      "request_key"
+    ]
+  },
+  "response_fields": {
+    "product": [
+      "id",
+      "sku",
+      "name",
+      "stock"
+    ],
+    "reservation": [
+      "id",
+      "product_id",
+      "quantity",
+      "request_key",
+      "status"
+    ]
+  }
+}

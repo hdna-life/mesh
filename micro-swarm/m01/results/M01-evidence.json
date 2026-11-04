@@ -1,0 +1,727 @@
+{
+  "summary": {
+    "milestone": "M0.1 — Protocol Independence",
+    "run_id": "M01-protocol-1793749760743-2b00a907",
+    "protocol_sha256": "2e807d9442203100bdb04c039dacb50e29fb9ffba130fa566c71c12924dc2342",
+    "complete": true,
+    "planned_calls": 20,
+    "completed_calls": 20,
+    "raw_syntax_valid": 0,
+    "usable_outputs": 20,
+    "success_rate": 1,
+    "gate_passed": true,
+    "results": [
+      {
+        "id": "protocol-01",
+        "seed": 1001,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 970,
+        "actual_neurons": 19.330906933173537,
+        "format": "fenced",
+        "source_sha256": "6a80eb26fdc2c40264d02fe6fa22578778d3d5e2e2ff889b3afea4aa5b1db2ae",
+        "elapsed_ms": 5095
+      },
+      {
+        "id": "protocol-02",
+        "seed": 1002,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1136,
+        "actual_neurons": 22.360700936987996,
+        "format": "fenced",
+        "source_sha256": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+        "elapsed_ms": 5589
+      },
+      {
+        "id": "protocol-03",
+        "seed": 1003,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1152,
+        "actual_neurons": 22.652729274705052,
+        "format": "fenced",
+        "source_sha256": "16feb4a24fae972b6eb723f0cf8f1b8ffb7125218a5f476d74746a38dd0c18d8",
+        "elapsed_ms": 7553
+      },
+      {
+        "id": "protocol-04",
+        "seed": 1004,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1153,
+        "actual_neurons": 22.67098104581237,
+        "format": "fenced",
+        "source_sha256": "a1f292c10182fe469edd2f46990133df9535c5e628cbb7e7881065aa5084a2d5",
+        "elapsed_ms": 5963
+      },
+      {
+        "id": "protocol-05",
+        "seed": 1005,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1174,
+        "actual_neurons": 23.054268239066005,
+        "format": "fenced",
+        "source_sha256": "621352c0d468a600ad3d4ec47acfe09f2f62a7b352f6258aedf2d58a8f9ccbcb",
+        "elapsed_ms": 6124
+      },
+      {
+        "id": "protocol-06",
+        "seed": 1006,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1152,
+        "actual_neurons": 22.652729274705052,
+        "format": "fenced",
+        "source_sha256": "16feb4a24fae972b6eb723f0cf8f1b8ffb7125218a5f476d74746a38dd0c18d8",
+        "elapsed_ms": 5511
+      },
+      {
+        "id": "protocol-07",
+        "seed": 1007,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 669,
+        "actual_neurons": 13.837123829871416,
+        "format": "fenced",
+        "source_sha256": "c8c5fac9474495b3e32e55c6d90a3bd4ab2b0bc09c2fda30a92f6d108bfcf2c2",
+        "elapsed_ms": 3716
+      },
+      {
+        "id": "protocol-08",
+        "seed": 1008,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1136,
+        "actual_neurons": 22.360700936987996,
+        "format": "fenced",
+        "source_sha256": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+        "elapsed_ms": 9524
+      },
+      {
+        "id": "protocol-09",
+        "seed": 1009,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1174,
+        "actual_neurons": 23.054268239066005,
+        "format": "fenced",
+        "source_sha256": "621352c0d468a600ad3d4ec47acfe09f2f62a7b352f6258aedf2d58a8f9ccbcb",
+        "elapsed_ms": 6206
+      },
+      {
+        "id": "protocol-10",
+        "seed": 1010,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 970,
+        "actual_neurons": 19.330906933173537,
+        "format": "fenced",
+        "source_sha256": "6a80eb26fdc2c40264d02fe6fa22578778d3d5e2e2ff889b3afea4aa5b1db2ae",
+        "elapsed_ms": 5556
+      },
+      {
+        "id": "protocol-11",
+        "seed": 1011,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1136,
+        "actual_neurons": 22.360700936987996,
+        "format": "fenced",
+        "source_sha256": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+        "elapsed_ms": 8590
+      },
+      {
+        "id": "protocol-12",
+        "seed": 1012,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1136,
+        "actual_neurons": 22.360700936987996,
+        "format": "fenced",
+        "source_sha256": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+        "elapsed_ms": 5809
+      },
+      {
+        "id": "protocol-13",
+        "seed": 1013,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1153,
+        "actual_neurons": 22.67098104581237,
+        "format": "fenced",
+        "source_sha256": "a1f292c10182fe469edd2f46990133df9535c5e628cbb7e7881065aa5084a2d5",
+        "elapsed_ms": 5982
+      },
+      {
+        "id": "protocol-14",
+        "seed": 1014,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1233,
+        "actual_neurons": 24.13112273439765,
+        "format": "fenced",
+        "source_sha256": "43355be8a436a03eb1c3bc4c2478d511f9634f591b7b55591e8bb975e7362991",
+        "elapsed_ms": 5649
+      },
+      {
+        "id": "protocol-15",
+        "seed": 1015,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1234,
+        "actual_neurons": 24.149374505504966,
+        "format": "fenced",
+        "source_sha256": "e87d1ca90978d73120634e5330f6cb7078017dfac3db4eac3a40f657a70b06e0",
+        "elapsed_ms": 5613
+      },
+      {
+        "id": "protocol-16",
+        "seed": 1016,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1174,
+        "actual_neurons": 23.054268239066005,
+        "format": "fenced",
+        "source_sha256": "621352c0d468a600ad3d4ec47acfe09f2f62a7b352f6258aedf2d58a8f9ccbcb",
+        "elapsed_ms": 7242
+      },
+      {
+        "id": "protocol-17",
+        "seed": 1017,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1153,
+        "actual_neurons": 22.67098104581237,
+        "format": "fenced",
+        "source_sha256": "a1f292c10182fe469edd2f46990133df9535c5e628cbb7e7881065aa5084a2d5",
+        "elapsed_ms": 5792
+      },
+      {
+        "id": "protocol-18",
+        "seed": 1018,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1233,
+        "actual_neurons": 24.13112273439765,
+        "format": "fenced",
+        "source_sha256": "43355be8a436a03eb1c3bc4c2478d511f9634f591b7b55591e8bb975e7362991",
+        "elapsed_ms": 6800
+      },
+      {
+        "id": "protocol-19",
+        "seed": 1019,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1136,
+        "actual_neurons": 22.360700936987996,
+        "format": "fenced",
+        "source_sha256": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+        "elapsed_ms": 6330
+      },
+      {
+        "id": "protocol-20",
+        "seed": 1020,
+        "target": "app.py",
+        "usable": true,
+        "raw_syntax_valid": false,
+        "extracted": true,
+        "syntax_valid": true,
+        "written": true,
+        "provider_error": null,
+        "input_tokens": 662,
+        "output_tokens": 1233,
+        "actual_neurons": 24.13112273439765,
+        "format": "fenced",
+        "source_sha256": "43355be8a436a03eb1c3bc4c2478d511f9634f591b7b55591e8bb975e7362991",
+        "elapsed_ms": 11262
+      }
+    ],
+    "main_runs": [
+      "1793749890659-dev-inventory-A-99cb0bcc",
+      "1793749897440-dev-inventory-A2-936b7023",
+      "1793749924735-dev-inventory-B-1fd4841d",
+      "1793749939230-dev-inventory-C-465862fe"
+    ],
+    "actual_protocol_neurons": 443.3263914939016
+  },
+  "main": [
+    {
+      "milestone": "M0.1 — Protocol Independence",
+      "protocol_sha256": "2e807d9442203100bdb04c039dacb50e29fb9ffba130fa566c71c12924dc2342",
+      "run_id": "1793749890659-dev-inventory-A-99cb0bcc",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "A",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": true,
+      "elapsed_ms": 6780,
+      "calls": 1,
+      "inference_attempts": 1,
+      "neuron_reservation_upper": 158.12725500000002,
+      "tokens": {
+        "input": 686,
+        "output": 908
+      },
+      "reserved_input_upper": 3503,
+      "reserved_output": 8192,
+      "provider_failures": 0,
+      "failure_categories": [
+        "runtime_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": true,
+        "category": "runtime_error",
+        "sandbox": {
+          "engine": "macOS Seatbelt",
+          "calibrated": true,
+          "error": null,
+          "limits": "CPU 12s, wall timeout, 2MiB/file, 96 FDs; RSS 256MiB/process-group 8 monitored every 200ms (not kernel hard limits); installed system files readable"
+        },
+        "tests": [
+          {
+            "name": "initial_products_empty",
+            "pass": true
+          },
+          {
+            "name": "initial_reservations_empty",
+            "pass": true
+          },
+          {
+            "name": "startup_or_required_setup",
+            "pass": false,
+            "type": "AssertionError",
+            "error": "expected 201; got 405"
+          },
+          {
+            "name": "sqlite_integrity",
+            "pass": true
+          }
+        ],
+        "stdout_stderr": " * Serving Flask app 'app'\n * Debug mode: on\n\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on http://127.0.0.1:61322\n\u001b[33mPress CTRL+C to quit\u001b[0m\n * Restarting with stat\n * Debugger is active!\n * Debugger PIN: 849-932-648\n127.0.0.1 - - [04/Nov/2026 02:51:37] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 02:51:37] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 02:51:37] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 02:51:37] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 405 -\n",
+        "exit_code": 1,
+        "elapsed_ms": 991
+      },
+      "artifact_sha256": "b2faa79f0ece6c2f51337b5c3c2226dc9032f036bb9313c79d44364a97bf86e4"
+    },
+    {
+      "milestone": "M0.1 — Protocol Independence",
+      "protocol_sha256": "2e807d9442203100bdb04c039dacb50e29fb9ffba130fa566c71c12924dc2342",
+      "run_id": "1793749897440-dev-inventory-A2-936b7023",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "A2",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": true,
+      "elapsed_ms": 27295,
+      "calls": 4,
+      "inference_attempts": 4,
+      "neuron_reservation_upper": 226.070676,
+      "tokens": {
+        "input": 7155,
+        "output": 3652
+      },
+      "reserved_input_upper": 31156,
+      "reserved_output": 8192,
+      "provider_failures": 0,
+      "failure_categories": [
+        "runtime_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": true,
+        "category": "runtime_error",
+        "sandbox": {
+          "engine": "macOS Seatbelt",
+          "calibrated": true,
+          "error": null,
+          "limits": "CPU 12s, wall timeout, 2MiB/file, 96 FDs; RSS 256MiB/process-group 8 monitored every 200ms (not kernel hard limits); installed system files readable"
+        },
+        "tests": [
+          {
+            "name": "initial_products_empty",
+            "pass": true
+          },
+          {
+            "name": "initial_reservations_empty",
+            "pass": true
+          },
+          {
+            "name": "startup_or_required_setup",
+            "pass": false,
+            "type": "AssertionError",
+            "error": "expected 201; got 405"
+          },
+          {
+            "name": "sqlite_integrity",
+            "pass": true
+          }
+        ],
+        "stdout_stderr": " * Serving Flask app 'app'\n * Debug mode: off\n\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on http://127.0.0.1:61372\n\u001b[33mPress CTRL+C to quit\u001b[0m\n127.0.0.1 - - [04/Nov/2026 02:52:04] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 02:52:04] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 02:52:04] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 02:52:04] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 405 -\n",
+        "exit_code": 1,
+        "elapsed_ms": 661
+      },
+      "artifact_sha256": "633cdaaa8fecafc4ade0dd1406e777f5f5e848ce62e928eff70243608e3a6778"
+    },
+    {
+      "milestone": "M0.1 — Protocol Independence",
+      "protocol_sha256": "2e807d9442203100bdb04c039dacb50e29fb9ffba130fa566c71c12924dc2342",
+      "run_id": "1793749924735-dev-inventory-B-1fd4841d",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "B",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": true,
+      "elapsed_ms": 14494,
+      "calls": 4,
+      "inference_attempts": 4,
+      "neuron_reservation_upper": 187.481385,
+      "tokens": {
+        "input": 5100,
+        "output": 2308
+      },
+      "reserved_input_upper": 23057,
+      "reserved_output": 7168,
+      "provider_failures": 0,
+      "failure_categories": [
+        "syntax_error",
+        "runtime_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": true,
+        "category": "runtime_error",
+        "sandbox": {
+          "engine": "macOS Seatbelt",
+          "calibrated": true,
+          "error": null,
+          "limits": "CPU 12s, wall timeout, 2MiB/file, 96 FDs; RSS 256MiB/process-group 8 monitored every 200ms (not kernel hard limits); installed system files readable"
+        },
+        "tests": [
+          {
+            "name": "initial_products_empty",
+            "pass": false,
+            "error": "expected (200, []); got (404, '<!doctype html>\\n<html lang=en>\\n<title>404 Not Found</title>\\n<h1>Not Found</h1>\\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\\n')",
+            "type": "AssertionError"
+          },
+          {
+            "name": "initial_reservations_empty",
+            "pass": false,
+            "error": "expected (200, []); got (404, '<!doctype html>\\n<html lang=en>\\n<title>404 Not Found</title>\\n<h1>Not Found</h1>\\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\\n')",
+            "type": "AssertionError"
+          },
+          {
+            "name": "startup_or_required_setup",
+            "pass": false,
+            "type": "AssertionError",
+            "error": "expected 201; got 404"
+          },
+          {
+            "name": "sqlite_integrity",
+            "pass": true
+          }
+        ],
+        "stdout_stderr": " * Serving Flask app 'app'\n * Debug mode: off\n\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on http://127.0.0.1:61397\n\u001b[33mPress CTRL+C to quit\u001b[0m\n127.0.0.1 - - [04/Nov/2026 02:52:19] \"\u001b[33mGET /products HTTP/1.1\u001b[0m\" 404 -\n127.0.0.1 - - [04/Nov/2026 02:52:19] \"\u001b[33mGET /products HTTP/1.1\u001b[0m\" 404 -\n127.0.0.1 - - [04/Nov/2026 02:52:19] \"\u001b[33mGET /reservations HTTP/1.1\u001b[0m\" 404 -\n127.0.0.1 - - [04/Nov/2026 02:52:19] \"\u001b[33mPOST /products HTTP/1.1\u001b[0m\" 404 -\n",
+        "exit_code": 1,
+        "elapsed_ms": 649
+      },
+      "artifact_sha256": "04fa4070f5b11b53fad5eeb70a498b557240f7bc5c428ce9dfb855a24307a0a8"
+    },
+    {
+      "milestone": "M0.1 — Protocol Independence",
+      "protocol_sha256": "2e807d9442203100bdb04c039dacb50e29fb9ffba130fa566c71c12924dc2342",
+      "run_id": "1793749939230-dev-inventory-C-465862fe",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "C",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": false,
+      "elapsed_ms": 5640,
+      "calls": 3,
+      "inference_attempts": 3,
+      "neuron_reservation_upper": 82.436211,
+      "tokens": {
+        "input": 2112,
+        "output": 531
+      },
+      "reserved_input_upper": 10731,
+      "reserved_output": 3072,
+      "provider_failures": 0,
+      "failure_categories": [
+        "syntax_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": false,
+        "tests": []
+      },
+      "artifact_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  ],
+  "analysis": {
+    "unique_extracted_sources": 8,
+    "task_count": 1,
+    "stateless_requests": 20,
+    "actual_main_neurons": 172.0335989864543,
+    "actual_m01_total_neurons": 615.3599904803559,
+    "main_details": [
+      {
+        "arm": "A",
+        "run_id": "1793749890659-dev-inventory-A-99cb0bcc",
+        "actual_neurons": 18.25827074237168,
+        "source_extractions": 1,
+        "execution_attempts": 1,
+        "errors": [],
+        "http_tests_reached": true
+      },
+      {
+        "arm": "A2",
+        "run_id": "1793749897440-dev-inventory-A2-936b7023",
+        "actual_neurons": 84.23697790596634,
+        "source_extractions": 4,
+        "execution_attempts": 4,
+        "errors": [],
+        "http_tests_reached": true
+      },
+      {
+        "arm": "B",
+        "run_id": "1793749924735-dev-inventory-B-1fd4841d",
+        "actual_neurons": 54.65698150917888,
+        "source_extractions": 3,
+        "execution_attempts": 2,
+        "errors": [
+          {
+            "category": "syntax_error",
+            "message": "OperationalError: table products already exists"
+          }
+        ],
+        "http_tests_reached": true
+      },
+      {
+        "arm": "C",
+        "run_id": "1793749939230-dev-inventory-C-465862fe",
+        "actual_neurons": 14.881368828937411,
+        "source_extractions": 0,
+        "execution_attempts": 0,
+        "errors": [
+          {
+            "category": "syntax_error",
+            "message": "OperationalError: table products already exists"
+          },
+          {
+            "category": "syntax_error",
+            "message": "OperationalError: table products already exists"
+          },
+          {
+            "category": "syntax_error",
+            "message": "OperationalError: table products already exists"
+          }
+        ],
+        "http_tests_reached": false
+      }
+    ],
+    "full_application_successes": 0,
+    "frozen_files_unchanged": true,
+    "human_edits_to_model_outputs": 0
+  },
+  "files": {
+    "runs/M01-protocol-1793749760743-2b00a907/initial.json": "4ff3e247425ca2486c6a3d227307f3a7244216c38e98e5de9e856f86e6d0ea4e",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-01/app.py": "6a80eb26fdc2c40264d02fe6fa22578778d3d5e2e2ff889b3afea4aa5b1db2ae",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-02/app.py": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-03/app.py": "16feb4a24fae972b6eb723f0cf8f1b8ffb7125218a5f476d74746a38dd0c18d8",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-04/app.py": "a1f292c10182fe469edd2f46990133df9535c5e628cbb7e7881065aa5084a2d5",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-05/app.py": "621352c0d468a600ad3d4ec47acfe09f2f62a7b352f6258aedf2d58a8f9ccbcb",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-06/app.py": "16feb4a24fae972b6eb723f0cf8f1b8ffb7125218a5f476d74746a38dd0c18d8",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-07/app.py": "c8c5fac9474495b3e32e55c6d90a3bd4ab2b0bc09c2fda30a92f6d108bfcf2c2",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-08/app.py": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-09/app.py": "621352c0d468a600ad3d4ec47acfe09f2f62a7b352f6258aedf2d58a8f9ccbcb",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-10/app.py": "6a80eb26fdc2c40264d02fe6fa22578778d3d5e2e2ff889b3afea4aa5b1db2ae",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-11/app.py": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-12/app.py": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-13/app.py": "a1f292c10182fe469edd2f46990133df9535c5e628cbb7e7881065aa5084a2d5",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-14/app.py": "43355be8a436a03eb1c3bc4c2478d511f9634f591b7b55591e8bb975e7362991",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-15/app.py": "e87d1ca90978d73120634e5330f6cb7078017dfac3db4eac3a40f657a70b06e0",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-16/app.py": "621352c0d468a600ad3d4ec47acfe09f2f62a7b352f6258aedf2d58a8f9ccbcb",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-17/app.py": "a1f292c10182fe469edd2f46990133df9535c5e628cbb7e7881065aa5084a2d5",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-18/app.py": "43355be8a436a03eb1c3bc4c2478d511f9634f591b7b55591e8bb975e7362991",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-19/app.py": "7acc1094cdf4b736c5682b547871c8259bf7b7f646450d96378e56acdeaf06d4",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-20/app.py": "43355be8a436a03eb1c3bc4c2478d511f9634f591b7b55591e8bb975e7362991",
+    "runs/M01-protocol-1793749760743-2b00a907/protocol-results.json": "260f7f633acbc449ad3a7b6550610329ab23354cd19850fea224429378074319",
+    "runs/M01-protocol-1793749760743-2b00a907/summary.json": "5debcef733a2dd19485eb48cccf5deeda995feabaf4fe7c14feb36d856036550",
+    "runs/M01-protocol-1793749760743-2b00a907/trace.jsonl": "a42d38911d8a68de5fe46b1323499e9f76da5a5f1a3a5fd83212feecbed9d42a",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/artifacts/app.py": "7d2322e7ae6e605e2841a46c53f71b1ef937babf9368dad10b37ab5567247d13",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/artifacts/verified.sqlite": "7795f95d1cbed4e737ca3bb0be6c3e316df7488c13bc9102dd3fa0e12d54971a",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/attempt-1/app.py": "7d2322e7ae6e605e2841a46c53f71b1ef937babf9368dad10b37ab5567247d13",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/graph.json": "0034b3499ad2a909dd994242b7c46046edd0ff01a84a24fce171f3651f5136d0",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/initial.json": "6d7ddef1b334ead890c2b12f0213531344051855f3ee2e8c12c6408d0b7f10f4",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/state.json": "2518f8f29ae32bb795671efa74a4afae037e22a746615d9531eb72d0b4bf1fa4",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/summary.json": "50394d44316722b8e686d2cefdf30835881c8a19a7dbafeb7a5ec6376af26424",
+    "runs/1793749890659-dev-inventory-A-99cb0bcc/trace.jsonl": "db7f6ee0e08860a9d9c0e35c34fd9383cb32d1fd06a581141f5941ba34318005",
+    "runs/1793749897440-dev-inventory-A2-936b7023/artifacts/app.py": "3bbf413a20a5f6e4e5b074f5c87a584a0bb381354084d73104876708b1703366",
+    "runs/1793749897440-dev-inventory-A2-936b7023/artifacts/verified.sqlite": "7795f95d1cbed4e737ca3bb0be6c3e316df7488c13bc9102dd3fa0e12d54971a",
+    "runs/1793749897440-dev-inventory-A2-936b7023/attempt-1/app.py": "bb36893922a909f34181a062a4a611f23751ad4d2cbb9caa5d04c6b1a74543b0",
+    "runs/1793749897440-dev-inventory-A2-936b7023/attempt-2/app.py": "3bbf413a20a5f6e4e5b074f5c87a584a0bb381354084d73104876708b1703366",
+    "runs/1793749897440-dev-inventory-A2-936b7023/attempt-3/app.py": "3bbf413a20a5f6e4e5b074f5c87a584a0bb381354084d73104876708b1703366",
+    "runs/1793749897440-dev-inventory-A2-936b7023/attempt-4/app.py": "3bbf413a20a5f6e4e5b074f5c87a584a0bb381354084d73104876708b1703366",
+    "runs/1793749897440-dev-inventory-A2-936b7023/graph.json": "695b52b6d3d61886ef41ad42a0606c71559630ca29f677c54787b74ad2b60fee",
+    "runs/1793749897440-dev-inventory-A2-936b7023/initial.json": "26a3ccfcf0a1975f346ff1bed4e66cee7c023e817c1bca9caf612ce93ba32911",
+    "runs/1793749897440-dev-inventory-A2-936b7023/state.json": "9c032ad9f7fef6cc32e7f7beee02f4eca38e778c5626d03151f55cd8b1fda4e5",
+    "runs/1793749897440-dev-inventory-A2-936b7023/summary.json": "91366ed18cc8d7e2c5ff7bb0ab1eadbf90034e3de2673174b6f65cbe8940f85d",
+    "runs/1793749897440-dev-inventory-A2-936b7023/trace.jsonl": "262d9d202f6eda07303cc46c49e5aff7c5397466b4d029d9be3bad0010639d03",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/artifacts/app.py": "3ce70fb66af8317d3fc8a51d7454f7d3e6e5ec896d0b2f268fce90487eed011f",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/artifacts/verified.sqlite": "9192c09df0bab825cba919f0c2ad97d827904fe9fea73e07cdb433d903982e7a",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/attempt-2/app.py": "7036c166b2f2b72cbdb84c99fa8d8ab4ed86b602029bfc2bc114c14611c0c92f",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/attempt-3/app.py": "3ce70fb66af8317d3fc8a51d7454f7d3e6e5ec896d0b2f268fce90487eed011f",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/attempt-4/app.py": "3ce70fb66af8317d3fc8a51d7454f7d3e6e5ec896d0b2f268fce90487eed011f",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/graph.json": "0526212d171de5793bc4116ffc3e87dd89fba192188dcc083ea87b2d55ad57f0",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/initial.json": "0c941015265b0558a39ea358409385469e752ad842ff523c2d1510ebc02e2478",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/state.json": "53318210addcf81b354a3a8b734ec7e4cb8645c04f03bad0a7b966020ad78076",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/summary.json": "193c7ef23ae6872d62cb8aac6267ca66b4b7ced75ae05ab73c70716be1365e58",
+    "runs/1793749924735-dev-inventory-B-1fd4841d/trace.jsonl": "25e2a1ebc5b59d31f7aae2a3c456d7b95e7b001ba140367fc9ba8edb5bcf4e55",
+    "runs/1793749939230-dev-inventory-C-465862fe/graph.json": "b82e3c3e7893d77192d7e1484ee8b93c6d2117f02e48fb3116aa0e1783f7f2f2",
+    "runs/1793749939230-dev-inventory-C-465862fe/initial.json": "ec4531dc01c76ca749a359527deb9bb79677927c95df6da65a4a5a22c2dec5f2",
+    "runs/1793749939230-dev-inventory-C-465862fe/state.json": "0969955002a4f3d7de4ffcdea4d0623a6ffe7ac7514fe93b953bdad8a281fdf3",
+    "runs/1793749939230-dev-inventory-C-465862fe/summary.json": "c609dbc2a004c7a748fa8ff6b5ac026fa821ac74a4ed8dee5e8fc8e2b766dcbe",
+    "runs/1793749939230-dev-inventory-C-465862fe/trace.jsonl": "e564deecd51b9a10f06ce227b0b4c6779d7065946e9fe0e4b0df501097cb6df4"
+  },
+  "archive": {
+    "path": "results/M01-raw-evidence.zip",
+    "sha256": "db4cbc5feadeaa0e83b606f69df61b7d3cc279e2db793d9d264436c3291e8ed4"
+  }
+}

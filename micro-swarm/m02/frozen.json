@@ -1,0 +1,28 @@
+{
+  "milestone": "M0.2 — Contract-First Execution",
+  "frozen_at": "2026-11-04T00:11:22.499Z",
+  "files": {
+    "../m01/src/contracts.ts": "905a4a884381f37ebbea07d2f3cb282494fd2fea87dff0dc92e9689e817600dc",
+    "../m01/src/execution.ts": "2801a18857cc7b97d8635908576b96d39838994d37b86644dfc28a78444a7c8d",
+    "../m01/src/extractor.ts": "14f138166f6d82d51cba862735d36e094cb31052297247a8f0d8d39ed0144d4c",
+    "../m01/src/provider.ts": "30ee7f278a211b3454b842855f6deabb3e00fbd25bae6d1c52632f306b916932",
+    "benchmarks/checker.py": "6cf1821fed415c8a01e51663aacddfe33e89ce01cc1bc973bd59684147152203",
+    "benchmarks/runner.py": "15cbc2106e25042e14ba7e914c4e0129ef2d04daa1fc05eac8aefcf78578fea9",
+    "benchmarks/tasks.json": "afd93a71e1823355499e70797717eca0d08cd4f84226cdc9abb5969d00cc8087",
+    "config.json": "a33c9aa19772037e805a9cbce6db0235b81fcd95b907fc48c40dfb29733c24e4",
+    "contract.json": "985a7fb36c475e78bdc4acc130461d156769aba7d4bd36ea6efbcc235972f81a",
+    "fixtures/gold.py": "9daa7a1dedfedf2f8877d3890059b5aa9031f327a57b5339f363f51e744c615e",
+    "package.json": "fc38d78bd86b79c2862ce33a8ed9db9dca2e24759b7af88c14cbf0adfd49d35f",
+    "requirements.lock.txt": "858dff930c4c950e2dd0a8e4a238e00ee98599124686222c127c2db19172e5b7",
+    "src/cli.ts": "691d8c49ba70866a024e858a35d5321a344350c8b3f2793e1499715a03f4fc33",
+    "src/contracts.ts": "7a6310f5411bd519935f45d4f0728dcf03fab2346495ff1c0094b283d0c53c55",
+    "src/engine.ts": "45b9f7eb0cd31ae71bc181076e69851f6bbacd4a9bd25a076e6a0ea76d1b1425",
+    "src/experiment.ts": "67030ee95c94b1d55a53f85c21acdca839ceb529ee82d50cd64123d60c7fcc9c",
+    "src/validation.ts": "0ff80db1a9485401c8fa42bbd7ce6db969f6374f6ec15727e881446b61f580e1",
+    "tests/engine.test.ts": "38a77a7ba5bd4d265874ac308d3ff20f91b4a20c162380b329cc36fac18c3f6d",
+    "tests/regression.test.ts": "2e8a5b462331c106f6863d41394aa79bce8368873fbf24e8e39d30f2f478de33",
+    "../../reports/m0_2/protocol.md": "0e84a9100486776971bae0476940e49b428dd6357fc06a6b40aedd813b525dfe",
+    "../../reports/m0_2/root-cause.md": "13494ddf190e797c9b67777d3b3b111d0b5d89f0015bfeb96b68621c97b094b9",
+    "../../reports/m0_2/validation-results.json": "66ebb064c8a8bfc2d3a60af3beb1ea4bd65a31d53870e28e86f2b37c414de26e"
+  }
+}

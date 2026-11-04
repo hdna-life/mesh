@@ -1,0 +1,7 @@
+{
+  "node": "v24.18.0",
+  "python": "3.9.6",
+  "os": "macOS-27.0-arm64-arm-64bit",
+  "dependency_lock": "../requirements.lock.txt",
+  "docker_used": false
+}

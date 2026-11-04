@@ -1,0 +1,230 @@
+{
+  "milestone": "M0 — Can Small Models Cooperate?",
+  "date": "2026-11-04",
+  "conclusion": "NO_EVIDENCE_OF_COOPERATION; OUTPUT_PROTOCOL_FAILURE",
+  "real_runs": [
+    {
+      "milestone": "M0 — Can Small Models Cooperate?",
+      "protocol_sha256": "52b523deb0fe53edc3e4adb7c01d5b3fb297c1f435d49003792225899772d2f7",
+      "run_id": "1793749080808-dev-inventory-A-e5f0e47e",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "A",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": false,
+      "elapsed_ms": 7356,
+      "calls": 1,
+      "inference_attempts": 1,
+      "neuron_reservation_upper": 158.375412,
+      "tokens": {
+        "input": 710,
+        "output": 1300
+      },
+      "reserved_input_upper": 3604,
+      "reserved_output": 8192,
+      "provider_failures": 0,
+      "failure_categories": [
+        "parse_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": false,
+        "tests": []
+      },
+      "artifact_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "milestone": "M0 — Can Small Models Cooperate?",
+      "protocol_sha256": "52b523deb0fe53edc3e4adb7c01d5b3fb297c1f435d49003792225899772d2f7",
+      "run_id": "1793749088170-dev-inventory-A2-3e15d8e7",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "A2",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": false,
+      "elapsed_ms": 24829,
+      "calls": 4,
+      "inference_attempts": 4,
+      "neuron_reservation_upper": 185.456466,
+      "tokens": {
+        "input": 2873,
+        "output": 4052
+      },
+      "reserved_input_upper": 14626,
+      "reserved_output": 8192,
+      "provider_failures": 0,
+      "failure_categories": [
+        "parse_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": false,
+        "tests": []
+      },
+      "artifact_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "milestone": "M0 — Can Small Models Cooperate?",
+      "protocol_sha256": "52b523deb0fe53edc3e4adb7c01d5b3fb297c1f435d49003792225899772d2f7",
+      "run_id": "1793749113002-dev-inventory-B-f355551f",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "B",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": true,
+      "elapsed_ms": 24182,
+      "calls": 4,
+      "inference_attempts": 4,
+      "neuron_reservation_upper": 169.45191899999998,
+      "tokens": {
+        "input": 3135,
+        "output": 3330
+      },
+      "reserved_input_upper": 15719,
+      "reserved_output": 7168,
+      "provider_failures": 0,
+      "failure_categories": [
+        "parse_error",
+        "runtime_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": true,
+        "category": "runtime_error",
+        "sandbox": {
+          "engine": "macOS Seatbelt",
+          "calibrated": true,
+          "error": null,
+          "limits": "CPU 12s, wall timeout, 2MiB/file, 96 FDs; RSS 256MiB/process-group 8 monitored every 200ms (not kernel hard limits); installed system files readable"
+        },
+        "tests": [
+          {
+            "name": "startup_or_required_setup",
+            "pass": false,
+            "type": "RuntimeError",
+            "error": "application exited 2"
+          },
+          {
+            "name": "sqlite_integrity",
+            "pass": false,
+            "error": "SQLite DATABASE_PATH file missing",
+            "type": "AssertionError"
+          }
+        ],
+        "stdout_stderr": "/Users/berdincozer/Desktop/mesh/micro-swarm/.venv/bin/python: can't open file '/private/tmp/micro-5swka3v2/app.py': [Errno 2] No such file or directory\n",
+        "exit_code": 1,
+        "elapsed_ms": 383,
+        "database_base64": null
+      },
+      "artifact_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "milestone": "M0 — Can Small Models Cooperate?",
+      "protocol_sha256": "52b523deb0fe53edc3e4adb7c01d5b3fb297c1f435d49003792225899772d2f7",
+      "run_id": "1793749137190-dev-inventory-C-01dff5c9",
+      "scenario_id": "dev-inventory",
+      "split": "development",
+      "arm": "C",
+      "seed": 42,
+      "provider": "cloudflare",
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "model_version": "provider not guaranteed pinned",
+      "research_eligible": true,
+      "passed": false,
+      "evaluated": false,
+      "elapsed_ms": 17366,
+      "calls": 3,
+      "inference_attempts": 3,
+      "neuron_reservation_upper": 83.254392,
+      "tokens": {
+        "input": 2187,
+        "output": 2932
+      },
+      "reserved_input_upper": 11064,
+      "reserved_output": 3072,
+      "provider_failures": 0,
+      "failure_categories": [
+        "parse_error"
+      ],
+      "test": {
+        "passed": false,
+        "evaluated": false,
+        "tests": []
+      },
+      "artifact_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  ],
+  "actual_task_neurons": 233.85773909743875,
+  "completed_mock_holdout_runs": 33,
+  "interrupted_mock_holdout_runs": [
+    {
+      "milestone": "M0 — Can Small Models Cooperate?",
+      "run_id": "1793749282050-holdout-12-C-2a79b0c2",
+      "scenario_id": "holdout-12",
+      "split": "holdout",
+      "arm": "C",
+      "provider": "mock",
+      "seed": 42,
+      "model_id": "@cf/meta/llama-3.2-1b-instruct",
+      "protocol_sha256": "52b523deb0fe53edc3e4adb7c01d5b3fb297c1f435d49003792225899772d2f7",
+      "research_eligible": false,
+      "passed": false,
+      "evaluated": false,
+      "status": "interrupted_by_user",
+      "calls": 3,
+      "tokens": null,
+      "elapsed_ms": null,
+      "failure_categories": [
+        "interrupted"
+      ],
+      "provider_failures": 0,
+      "test": {
+        "passed": false,
+        "evaluated": false,
+        "tests": []
+      },
+      "note": "User stopped the 20-holdout expansion. No test result inferred. Partial trace retained."
+    }
+  ],
+  "files": {
+    "runs/1793749080808-dev-inventory-A-e5f0e47e/initial.json": "9216af7a113ff0ecc11dd8c080c41bb81228e6f46f3f8afa8713639a4c2cdf7a",
+    "runs/1793749080808-dev-inventory-A-e5f0e47e/trace.jsonl": "614d8a7837c1edd32c1643784730305e689dd757b736a6f891f8d9a88fb7790b",
+    "runs/1793749080808-dev-inventory-A-e5f0e47e/summary.json": "1b3d1e22ee594c4a189884253215373f49c2b4c82b2bc6c27989577e26e4d66e",
+    "runs/1793749080808-dev-inventory-A-e5f0e47e/state.json": "1fdbeb75040b783920b0bd97e28daa59be30886e06638cd648bc61d80adaa5ac",
+    "runs/1793749080808-dev-inventory-A-e5f0e47e/graph.json": "325ead5e6fc274730349c73d018a51bb95c39debfcdf7dac6893eafc0a776eca",
+    "runs/1793749088170-dev-inventory-A2-3e15d8e7/initial.json": "17aa56a75dfb913a029e742ce288459809de99e958f83555e80ea0213d1bf0a0",
+    "runs/1793749088170-dev-inventory-A2-3e15d8e7/trace.jsonl": "cfa95dca32a42dc3e12031e23f37959c20f4337859f7af08fcedbe43e0a39c7a",
+    "runs/1793749088170-dev-inventory-A2-3e15d8e7/summary.json": "0ac42b4ed3169e0507696ef726a95c5843228d1654a4e98800a51a05334172c6",
+    "runs/1793749088170-dev-inventory-A2-3e15d8e7/state.json": "1fdbeb75040b783920b0bd97e28daa59be30886e06638cd648bc61d80adaa5ac",
+    "runs/1793749088170-dev-inventory-A2-3e15d8e7/graph.json": "325ead5e6fc274730349c73d018a51bb95c39debfcdf7dac6893eafc0a776eca",
+    "runs/1793749113002-dev-inventory-B-f355551f/initial.json": "bccca690e0acef91f102f4a72795d5b7d7881a25b167e9191dfca92a79434dc9",
+    "runs/1793749113002-dev-inventory-B-f355551f/trace.jsonl": "ea116b3f410dcac094bf893ce05299fc94db0feab54357eff852f6622b3c1121",
+    "runs/1793749113002-dev-inventory-B-f355551f/summary.json": "c20f326868001ed8c678707ecf78e475027c0674a97c57eaecd5d920fc22d782",
+    "runs/1793749113002-dev-inventory-B-f355551f/state.json": "0872fe567991436ef6fbc2c5655b15b5d33b7492a447cc231feb78211674cb94",
+    "runs/1793749113002-dev-inventory-B-f355551f/graph.json": "9e67f30171750bc4a345cb922aec71b78d30f3814812c14ce0c16b2f80373edd",
+    "runs/1793749137190-dev-inventory-C-01dff5c9/initial.json": "5ba6fa3290681173385692ff9df06d381a8be45932727e7a1aadc49ae86b7b1f",
+    "runs/1793749137190-dev-inventory-C-01dff5c9/trace.jsonl": "3541409122cbee5190c604777d579e7f6f731b380a079bac7a245ee11158bc94",
+    "runs/1793749137190-dev-inventory-C-01dff5c9/summary.json": "e5080e4ed8f1f06f27f8e8dd2b9ddf4ef1e2bdfa847a12e7b701edbeb12f3084",
+    "runs/1793749137190-dev-inventory-C-01dff5c9/state.json": "0969955002a4f3d7de4ffcdea4d0623a6ffe7ac7514fe93b953bdad8a281fdf3",
+    "runs/1793749137190-dev-inventory-C-01dff5c9/graph.json": "b82e3c3e7893d77192d7e1484ee8b93c6d2117f02e48fb3116aa0e1783f7f2f2"
+  },
+  "archive": {
+    "path": "results/M0-raw-evidence.zip",
+    "sha256": "a8d83444efb8c00bc6cdc1a3c5bcba30fe7f1e6bd39317a072df8968c24b9a7c"
+  }
+}

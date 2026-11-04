@@ -1,0 +1,16 @@
+{
+  "name": "micro-swarm-m01",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts",
+    "freeze": "node src/cli.ts freeze",
+    "protocol": "node src/protocol-study.ts",
+    "run-scenario": "node src/cli.ts run",
+    "smoke": "node src/cli.ts smoke --provider mock"
+  }
+}

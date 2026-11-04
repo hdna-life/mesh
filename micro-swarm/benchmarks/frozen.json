@@ -1,0 +1,16 @@
+{
+  "milestone": "M0 — Can Small Models Cooperate?",
+  "frozen_at": "2026-11-03T23:37:31.056Z",
+  "files": {
+    "benchmarks/runner.py": "f5fe4c2a5afceb27529bda4f2b3a00832e4ddf53792ec2f62660008c6e7223e4",
+    "benchmarks/tasks.json": "afd93a71e1823355499e70797717eca0d08cd4f84226cdc9abb5969d00cc8087",
+    "fixtures/gold.py": "9daa7a1dedfedf2f8877d3890059b5aa9031f327a57b5339f363f51e744c615e",
+    "src/artifacts.ts": "45883252a32b368556eb175a923b17c0ca8b19aea7a3d7bed9c9097b7b766d79",
+    "src/cli.ts": "851f68e12cf57e3359b418a52cce5a229894c99e97c1f398a59fe1824bb5bcf2",
+    "src/contracts.ts": "e8e0b1da6007f1aeb8e7bff50d62b84a90d5ae0ffb57a26dfd35746a64a4d1d1",
+    "src/execution.ts": "2801a18857cc7b97d8635908576b96d39838994d37b86644dfc28a78444a7c8d",
+    "src/experiment.ts": "d8f93904af2f3832de704d44156c1ad30bd8d269de1ebf79b21220694db9a42b",
+    "src/graph.ts": "abf7706c49caed657625e2b8693ab55de375bb75b8016cf4ba9ec3ee3629a289",
+    "src/provider.ts": "04ffc30b59c9f28780abad52bede7fab7c65ca8b53f566677a2dd0871f9cfb89"
+  }
+}

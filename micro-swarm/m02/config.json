@@ -1,0 +1,55 @@
+{
+  "milestone": "M0.2 \u2014 Contract-First Execution",
+  "model_id": "@cf/meta/llama-3.2-1b-instruct",
+  "scenario_id": "dev-inventory",
+  "seed": 42,
+  "temperature": 0,
+  "arms": [
+    "A",
+    "A2",
+    "B",
+    "C"
+  ],
+  "max_calls_per_arm": 5,
+  "max_repairs_per_arm": 2,
+  "max_output_tokens_per_arm": 12288,
+  "max_total_token_upper_per_arm": 96000,
+  "daily_neuron_reservation_cap": 5000,
+  "batch_request_limit": 20,
+  "run_timeout_ms": 180000,
+  "allocations": {
+    "A": [
+      12288
+    ],
+    "A2": [
+      6144,
+      3072,
+      3072
+    ],
+    "B_C_initial": {
+      "schema": 768,
+      "validation": 1536,
+      "api": 6144
+    },
+    "B_C_repair": 1920
+  },
+  "baseline_owner": "single_expert",
+  "owners": {
+    "schema.sql": "schema_expert",
+    "validation.py": "validation_expert",
+    "app.py": "api_expert"
+  },
+  "fixed_order": [
+    "schema",
+    "validation",
+    "api"
+  ],
+  "semantic_sources": {
+    "wire_contract": "human: frozen M0 inventory requirements, unchanged",
+    "module_interfaces": "human: M0.2 preregistered integration contract",
+    "route_checks": "deterministic interpretation of human endpoint list",
+    "schema_checks": "deterministic interpretation of human schema contract",
+    "repair_routing": "human preregistered failure-owner policy",
+    "implementation": "ONLY model output; no golden/reference source in prompts"
+  }
+}

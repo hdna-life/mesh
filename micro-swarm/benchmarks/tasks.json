@@ -1,0 +1,191 @@
+[
+  {
+    "id": "dev-inventory",
+    "split": "development",
+    "max_name": 80,
+    "max_stock": 1000,
+    "max_quantity": 100,
+    "descending": false,
+    "filter": false
+  },
+  {
+    "id": "holdout-01",
+    "split": "holdout",
+    "max_name": 40,
+    "max_stock": 1000,
+    "max_quantity": 10,
+    "descending": false,
+    "filter": false
+  },
+  {
+    "id": "holdout-02",
+    "split": "holdout",
+    "max_name": 120,
+    "max_stock": 1000,
+    "max_quantity": 100,
+    "descending": false,
+    "filter": false
+  },
+  {
+    "id": "holdout-03",
+    "split": "holdout",
+    "max_name": 200,
+    "max_stock": 1000,
+    "max_quantity": 10,
+    "descending": true,
+    "filter": false
+  },
+  {
+    "id": "holdout-04",
+    "split": "holdout",
+    "max_name": 80,
+    "max_stock": 1000,
+    "max_quantity": 100,
+    "descending": true,
+    "filter": false
+  },
+  {
+    "id": "holdout-05",
+    "split": "holdout",
+    "max_name": 60,
+    "max_stock": 1000,
+    "max_quantity": 10,
+    "descending": false,
+    "filter": false
+  },
+  {
+    "id": "holdout-06",
+    "split": "holdout",
+    "max_name": 40,
+    "max_stock": 1000,
+    "max_quantity": 100,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-07",
+    "split": "holdout",
+    "max_name": 120,
+    "max_stock": 1000,
+    "max_quantity": 10,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-08",
+    "split": "holdout",
+    "max_name": 200,
+    "max_stock": 1000,
+    "max_quantity": 100,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-09",
+    "split": "holdout",
+    "max_name": 80,
+    "max_stock": 1000,
+    "max_quantity": 10,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-10",
+    "split": "holdout",
+    "max_name": 60,
+    "max_stock": 1000,
+    "max_quantity": 100,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-11",
+    "split": "holdout",
+    "max_name": 40,
+    "max_stock": 10000,
+    "max_quantity": 10,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-12",
+    "split": "holdout",
+    "max_name": 120,
+    "max_stock": 10000,
+    "max_quantity": 100,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-13",
+    "split": "holdout",
+    "max_name": 200,
+    "max_stock": 10000,
+    "max_quantity": 10,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-14",
+    "split": "holdout",
+    "max_name": 80,
+    "max_stock": 10000,
+    "max_quantity": 100,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-15",
+    "split": "holdout",
+    "max_name": 60,
+    "max_stock": 10000,
+    "max_quantity": 10,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-16",
+    "split": "holdout",
+    "max_name": 40,
+    "max_stock": 10000,
+    "max_quantity": 100,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-17",
+    "split": "holdout",
+    "max_name": 120,
+    "max_stock": 10000,
+    "max_quantity": 10,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-18",
+    "split": "holdout",
+    "max_name": 200,
+    "max_stock": 10000,
+    "max_quantity": 100,
+    "descending": false,
+    "filter": true
+  },
+  {
+    "id": "holdout-19",
+    "split": "holdout",
+    "max_name": 80,
+    "max_stock": 10000,
+    "max_quantity": 10,
+    "descending": true,
+    "filter": true
+  },
+  {
+    "id": "holdout-20",
+    "split": "holdout",
+    "max_name": 60,
+    "max_stock": 10000,
+    "max_quantity": 100,
+    "descending": true,
+    "filter": true
+  }
+]

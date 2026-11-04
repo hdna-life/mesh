@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-11-04T00:11:18.441218+00:00",
+  "unit_passed": true,
+  "unit_tests": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "names": [
+      "duplicate ownership and cycles",
+      "foreign owner denied",
+      "persistent completed-task dedup",
+      "dependency preconditions",
+      "failed repair preserves accepted artifact",
+      "owner routing and global retry cap",
+      "wrong HTTP method/missing route",
+      "duplicate SQL vs migration second apply",
+      "SQL comments/string tokenizer",
+      "signatures and foreign artifact writes"
+    ]
+  },
+  "regression_passed": true,
+  "regression_tests": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "names": [
+      "gold passes original acceptance suite",
+      "missing stock decrement rejected",
+      "double cancellation refund rejected",
+      "restart data loss rejected",
+      "boolean quantity rejected",
+      "correct validation module accepted",
+      "broken validation module rejected"
+    ]
+  },
+  "golden_reference_passed": true,
+  "all_four_original_mutants_rejected": true,
+  "original_acceptance_assertions_unchanged": true,
+  "acceptance_block_sha256": "ca3237f4f3e6b510cf13d0415a672ea1de62cf01adefeba203e241b3a53a1ca4",
+  "real_inference_started": false,
+  "note": "Observed from npm test and npm run regression before freeze; no reference source enters inference."
+}

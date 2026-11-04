@@ -1,0 +1,20 @@
+{
+  "name": "micro-swarm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts",
+    "smoke": "node src/cli.ts smoke --provider mock",
+    "benchmark": "node src/cli.ts benchmark",
+    "smoke:provider": "node src/cli.ts provider-smoke --provider cloudflare",
+    "run-scenario": "node src/cli.ts run",
+    "replay": "node src/cli.ts replay",
+    "freeze": "node src/cli.ts freeze",
+    "check": "npm test && npm run smoke",
+    "test:runner": "node --test tests/runner.integration.ts"
+  }
+}

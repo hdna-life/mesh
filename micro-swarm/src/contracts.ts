@@ -1,0 +1,29 @@
+export const MODEL = '@cf/meta/llama-3.2-1b-instruct';
+export type Arm = 'A' | 'A2' | 'B' | 'C';
+export type Scenario = {id:string; split:string; max_name:number; max_stock:number; max_quantity:number; descending:boolean; filter:boolean};
+export type Files = Record<string,string>;
+export class Failure extends Error { category:string; constructor(category:string, message:string) {super(message);this.category=category;} }
+export const categories = ['parse_error','schema_violation','missing_capability','dependency_cycle','incorrect_code','integration_mismatch','runtime_error','test_failure','provider_error','budget_exceeded','timeout','sandbox_unavailable'];
+export function contract(s:Scenario) {
+ return `Build a real inventory and reservation REST API with Python Flask and SQLite. Only Flask and the Python standard library are installed. app.py must run via python app.py, bind to 127.0.0.1 at PORT env var, enable concurrent request handling, and store SQLite at DATABASE_PATH env var. Initialize schema on startup without erasing data. No external network or subprocesses. Optional files: schema.sql and db.py. Use SQLite tables products(id,sku,name,stock) and reservations(id,product_id,quantity,request_key,status); reservations.product_id must reference products.id with a foreign key.\nProduct JSON: {id:positive integer,sku:string,name:string,stock:integer}. Reservation JSON: {id:positive integer,product_id:integer,quantity:integer,request_key:string,status:"active"|"cancelled"}. Return exactly these keys.\nPOST /products requires exactly {sku,name,stock}. SKU is ASCII [A-Z0-9-]{1,16}, unique case-sensitively; duplicate SKU returns 409. Name is a string stripped of surrounding whitespace, length 1..${s.max_name}. Stock must be an integer (not bool) 0..${s.max_stock}. Invalid input ->400 JSON object. Valid ->201 product.\nGET /products ->200 JSON array ordered by id ${s.descending?'descending':'ascending'}. GET /products/<id> ->200 product or 404 JSON error.\nPOST /reservations requires exactly {product_id,quantity,request_key}. product_id is positive integer, quantity integer 1..${s.max_quantity}; bool is invalid. request_key is ASCII [A-Za-z0-9-]{1,64}. Unknown/missing fields, malformed JSON and non-object JSON ->400. Missing product ->404. Insufficient stock ->409. On success, decrement product stock and create reservation in ONE atomic transaction, returning 201 reservation. Stock must NEVER become negative, including concurrent requests. Failed requests must leave both tables unchanged.\nIdempotency: Reusing request_key with identical product_id and quantity returns the original reservation with 200 (even if it is cancelled); never decrement stock again. Same key with a different product or quantity ->409 with no changes.\nGET /reservations ->200 JSON array ordered by id ascending. ${s.filter?'Optional status=active or status=cancelled filters this list; other status query values ->400.':''}\nPOST /reservations/<id>/cancel accepts exactly {} JSON. Missing reservation ->404. Active reservation becomes cancelled, restoring quantity to its product in ONE transaction. Return 200 cancelled reservation. Repeated cancellation returns the same object with 200 and MUST NOT restore stock twice.\nAll rejected inputs use JSON object error bodies. No authentication. Products, reservations, stock deductions, idempotency and cancellations must survive process restart. SQLite PRAGMA integrity_check must be ok.\nReturn only protocol JSON; no tests, dependencies or documentation.`;
+}
+export function parseResponse(raw:string) {
+ let v:any; try {v=JSON.parse(raw);} catch {throw new Failure('parse_error','Response is not strict JSON');}
+ const strArray=(x:any)=>Array.isArray(x)&&x.every((y:any)=>typeof y==='string');
+ if(!v || typeof v!=='object' || Array.isArray(v) || !v.result || !Array.isArray(v.result.files) || !strArray(v.requirements) || !strArray(v.proposed_tasks) || !strArray(v.assumptions)) throw new Failure('schema_violation','Expected result.files, requirements, proposed_tasks, assumptions');
+ if(v.result.files.length>3) throw new Failure('schema_violation','At most three files');
+ const paths=new Set();
+ for(const f of v.result.files) {
+  if(!f || typeof f.path!=='string'|| typeof f.content!=='string'||!['app.py','db.py','schema.sql'].includes(f.path)||paths.has(f.path)||Buffer.byteLength(f.content)>100000) throw new Failure('schema_violation','Invalid, duplicate, oversized or unsafe file');
+  paths.add(f.path);
+ }
+ return v as {result:{files:{path:string;content:string}[]};requirements:string[];proposed_tasks:string[];assumptions:string[]};
+}
+export const protocol = 'Return STRICT JSON, no markdown: {"result":{"files":[{"path":"app.py","content":"full file content"}]},"requirements":[],"proposed_tasks":[],"assumptions":[]}. File allowlist: app.py, db.py, schema.sql. requirements contains prerequisite artifact IDs; proposed_tasks contains only allowlisted capability IDs. Never put the solution in assumptions. No ready backend is provided.';
+export const roles:Record<string,string>={
+ single:'Implement the complete application yourself.',
+ schema:'Design ONLY SQLite schema. Return schema.sql, not Python. The API role will read this schema. Describe DB interface assumptions.',
+ api:'Implement HTTP handlers and DB access in app.py, optionally db.py. Use the supplied SQLite schema; initialize it. Respect the entire endpoint contract.',
+ validation:'Review current application, implement input validation, error codes and edge cases in the existing files. Return complete contents only for files you change. Preserve correct features.',
+ repair:'Repair only the reported failures in the relevant existing files. Return full contents of changed files only; do not recreate the whole project. Empty files list is valid when there are no failures.'
+};

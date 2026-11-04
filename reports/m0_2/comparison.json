@@ -1,0 +1,1750 @@
+{
+  "milestone": "M0.2 — Contract-First Execution",
+  "protocol_hash": "a8f02e6b0e51e03c190ba1a65aa27e2f7f71c3783b24dd60000845d5956b7820",
+  "config": {
+    "milestone": "M0.2 — Contract-First Execution",
+    "model_id": "@cf/meta/llama-3.2-1b-instruct",
+    "scenario_id": "dev-inventory",
+    "seed": 42,
+    "temperature": 0,
+    "arms": [
+      "A",
+      "A2",
+      "B",
+      "C"
+    ],
+    "max_calls_per_arm": 5,
+    "max_repairs_per_arm": 2,
+    "max_output_tokens_per_arm": 12288,
+    "max_total_token_upper_per_arm": 96000,
+    "daily_neuron_reservation_cap": 5000,
+    "batch_request_limit": 20,
+    "run_timeout_ms": 180000,
+    "allocations": {
+      "A": [
+        12288
+      ],
+      "A2": [
+        6144,
+        3072,
+        3072
+      ],
+      "B_C_initial": {
+        "schema": 768,
+        "validation": 1536,
+        "api": 6144
+      },
+      "B_C_repair": 1920
+    },
+    "baseline_owner": "single_expert",
+    "owners": {
+      "schema.sql": "schema_expert",
+      "validation.py": "validation_expert",
+      "app.py": "api_expert"
+    },
+    "fixed_order": [
+      "schema",
+      "validation",
+      "api"
+    ],
+    "semantic_sources": {
+      "wire_contract": "human: frozen M0 inventory requirements, unchanged",
+      "module_interfaces": "human: M0.2 preregistered integration contract",
+      "route_checks": "deterministic interpretation of human endpoint list",
+      "schema_checks": "deterministic interpretation of human schema contract",
+      "repair_routing": "human preregistered failure-owner policy",
+      "implementation": "ONLY model output; no golden/reference source in prompts"
+    }
+  },
+  "results": [
+    {
+      "milestone": "M0.2 — Contract-First Execution",
+      "run_id": "1793751094117-A-e34c5ac3",
+      "arm": "A",
+      "protocol_hash": "a8f02e6b0e51e03c190ba1a65aa27e2f7f71c3783b24dd60000845d5956b7820",
+      "full_success": false,
+      "all_contracts_completed": false,
+      "acceptance_evaluated": true,
+      "passed_test_count": 0,
+      "executed_test_count": 2,
+      "first_failed_test": {
+        "name": "startup_or_required_setup",
+        "pass": false,
+        "type": "RuntimeError",
+        "error": "application exited 1"
+      },
+      "final_failed_test": {
+        "name": "startup_or_required_setup",
+        "pass": false,
+        "type": "RuntimeError",
+        "error": "application exited 1"
+      },
+      "first_artifact_failure": {
+        "name": "route:POST /products",
+        "detail": [
+          {
+            "method": "GET",
+            "path": "/products",
+            "line": 23
+          },
+          {
+            "method": "GET",
+            "path": "/products/<int>",
+            "line": 31
+          },
+          {
+            "method": "POST",
+            "path": "/reservations",
+            "line": 41
+          },
+          {
+            "method": "POST",
+            "path": "/reservations/<int>/cancel",
+            "line": 56
+          }
+        ],
+        "pass": false
+      },
+      "initial_http_tests": [
+        {
+          "name": "startup_or_required_setup",
+          "pass": false,
+          "type": "RuntimeError",
+          "error": "application exited 1"
+        },
+        {
+          "name": "sqlite_integrity",
+          "pass": false,
+          "error": "SQLite DATABASE_PATH file missing",
+          "type": "AssertionError"
+        }
+      ],
+      "final_http_tests": [
+        {
+          "name": "startup_or_required_setup",
+          "pass": false,
+          "type": "RuntimeError",
+          "error": "application exited 1"
+        },
+        {
+          "name": "sqlite_integrity",
+          "pass": false,
+          "error": "SQLite DATABASE_PATH file missing",
+          "type": "AssertionError"
+        }
+      ],
+      "calls": 1,
+      "tokens": {
+        "input": 1074,
+        "output": 669
+      },
+      "actual_neurons": 14.84950426965952,
+      "elapsed_ms": 5150,
+      "repairs": 0,
+      "artifact_validation_errors": [
+        {
+          "timestamp": "2026-11-04T00:11:39.269Z",
+          "event": "rejected",
+          "task_id": "single",
+          "capability": "single",
+          "owner": "single_expert",
+          "status": "failed",
+          "input_hash": "3fe3ca68f995b17f450f44f4b2cfd8249912aabbfa5ae2f12355accfa3a42db2",
+          "artifact_hash": "fcadedd40e5050242c4199b9beb1e19effc79035446967887bcd1972604949fd",
+          "accepted_artifact_hash": null,
+          "attempt": 1,
+          "checks": [
+            {
+              "name": "python_syntax",
+              "detail": null,
+              "pass": true
+            },
+            {
+              "name": "route:POST /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 56
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:GET /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 56
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /products/<int>",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 56
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:POST /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 56
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 56
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:POST /reservations/<int>/cancel",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 56
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "inline_schema_static",
+              "detail": "unknown: no constant DDL; actual DB is checked after runtime",
+              "pass": true
+            },
+            {
+              "name": "http:startup_or_required_setup",
+              "pass": false,
+              "type": "RuntimeError",
+              "error": "application exited 1"
+            },
+            {
+              "name": "http:sqlite_integrity",
+              "pass": false,
+              "error": "SQLite DATABASE_PATH file missing",
+              "type": "AssertionError"
+            },
+            {
+              "name": "all_acceptance_tests",
+              "pass": false,
+              "error": "full acceptance failed"
+            }
+          ]
+        }
+      ],
+      "graph_changes": [],
+      "task_states": [
+        {
+          "id": "single",
+          "owner": "single_expert",
+          "output": "app.py",
+          "requires": [
+            "requirements"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "Python syntax",
+            "same endpoint methods",
+            "same SQLite schema and migration checks",
+            "all unchanged HTTP/SQLite acceptance tests"
+          ],
+          "status": "failed",
+          "attempt": 1,
+          "input_hash": "3fe3ca68f995b17f450f44f4b2cfd8249912aabbfa5ae2f12355accfa3a42db2"
+        }
+      ],
+      "provider_stop": false,
+      "budget": {
+        "input_upper": 5550,
+        "output_reserved": 12288
+      },
+      "notes": "HTTP setup preconditions can block later tests. Only full unchanged acceptance pass is success; not-run tests are not counted as passed."
+    },
+    {
+      "milestone": "M0.2 — Contract-First Execution",
+      "run_id": "1793751099270-A2-3b082967",
+      "arm": "A2",
+      "protocol_hash": "a8f02e6b0e51e03c190ba1a65aa27e2f7f71c3783b24dd60000845d5956b7820",
+      "full_success": false,
+      "all_contracts_completed": false,
+      "acceptance_evaluated": true,
+      "passed_test_count": 0,
+      "executed_test_count": 2,
+      "first_failed_test": {
+        "name": "startup_or_required_setup",
+        "pass": false,
+        "type": "RuntimeError",
+        "error": "application exited 1"
+      },
+      "final_failed_test": {
+        "name": "startup_or_required_setup",
+        "pass": false,
+        "type": "RuntimeError",
+        "error": "application exited 1"
+      },
+      "first_artifact_failure": {
+        "name": "route:POST /products",
+        "detail": [
+          {
+            "method": "GET",
+            "path": "/products",
+            "line": 23
+          },
+          {
+            "method": "GET",
+            "path": "/products/<int>",
+            "line": 31
+          },
+          {
+            "method": "POST",
+            "path": "/reservations",
+            "line": 41
+          },
+          {
+            "method": "POST",
+            "path": "/reservations/<int>/cancel",
+            "line": 59
+          }
+        ],
+        "pass": false
+      },
+      "initial_http_tests": [
+        {
+          "name": "startup_or_required_setup",
+          "pass": false,
+          "type": "RuntimeError",
+          "error": "application exited 1"
+        },
+        {
+          "name": "sqlite_integrity",
+          "pass": false,
+          "error": "SQLite DATABASE_PATH file missing",
+          "type": "AssertionError"
+        }
+      ],
+      "final_http_tests": [
+        {
+          "name": "startup_or_required_setup",
+          "pass": false,
+          "type": "RuntimeError",
+          "error": "application exited 1"
+        },
+        {
+          "name": "sqlite_integrity",
+          "pass": false,
+          "error": "SQLite DATABASE_PATH file missing",
+          "type": "AssertionError"
+        }
+      ],
+      "calls": 3,
+      "tokens": {
+        "input": 5326,
+        "output": 2181
+      },
+      "actual_neurons": 52.894341479986906,
+      "elapsed_ms": 13638,
+      "repairs": 2,
+      "artifact_validation_errors": [
+        {
+          "timestamp": "2026-11-04T00:11:43.646Z",
+          "event": "rejected",
+          "task_id": "single",
+          "capability": "single",
+          "owner": "single_expert",
+          "status": "failed",
+          "input_hash": "3fe3ca68f995b17f450f44f4b2cfd8249912aabbfa5ae2f12355accfa3a42db2",
+          "artifact_hash": "3fbaecd6ecda56f173dad9c945bd63e472bfb6e5a7bc0dc48646c0c31420bd5a",
+          "accepted_artifact_hash": null,
+          "attempt": 1,
+          "checks": [
+            {
+              "name": "python_syntax",
+              "detail": null,
+              "pass": true
+            },
+            {
+              "name": "route:POST /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:GET /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /products/<int>",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:POST /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:POST /reservations/<int>/cancel",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "inline_schema_static",
+              "detail": "unknown: no constant DDL; actual DB is checked after runtime",
+              "pass": true
+            },
+            {
+              "name": "http:startup_or_required_setup",
+              "pass": false,
+              "type": "RuntimeError",
+              "error": "application exited 1"
+            },
+            {
+              "name": "http:sqlite_integrity",
+              "pass": false,
+              "error": "SQLite DATABASE_PATH file missing",
+              "type": "AssertionError"
+            },
+            {
+              "name": "all_acceptance_tests",
+              "pass": false,
+              "error": "full acceptance failed"
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-11-04T00:11:48.328Z",
+          "event": "rejected",
+          "task_id": "single",
+          "capability": "single",
+          "owner": "single_expert",
+          "status": "failed",
+          "input_hash": "c6a75f4024795c76d9a9e43c56ca7c3ae86e8f78eff21e83a209abbec67849cb",
+          "artifact_hash": "3fbaecd6ecda56f173dad9c945bd63e472bfb6e5a7bc0dc48646c0c31420bd5a",
+          "accepted_artifact_hash": null,
+          "attempt": 2,
+          "checks": [
+            {
+              "name": "python_syntax",
+              "detail": null,
+              "pass": true
+            },
+            {
+              "name": "route:POST /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:GET /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /products/<int>",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:POST /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:POST /reservations/<int>/cancel",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "inline_schema_static",
+              "detail": "unknown: no constant DDL; actual DB is checked after runtime",
+              "pass": true
+            },
+            {
+              "name": "http:startup_or_required_setup",
+              "pass": false,
+              "type": "RuntimeError",
+              "error": "application exited 1"
+            },
+            {
+              "name": "http:sqlite_integrity",
+              "pass": false,
+              "error": "SQLite DATABASE_PATH file missing",
+              "type": "AssertionError"
+            },
+            {
+              "name": "all_acceptance_tests",
+              "pass": false,
+              "error": "full acceptance failed"
+            }
+          ]
+        },
+        {
+          "timestamp": "2026-11-04T00:11:52.909Z",
+          "event": "rejected",
+          "task_id": "single",
+          "capability": "single",
+          "owner": "single_expert",
+          "status": "failed",
+          "input_hash": "c6a75f4024795c76d9a9e43c56ca7c3ae86e8f78eff21e83a209abbec67849cb",
+          "artifact_hash": "3fbaecd6ecda56f173dad9c945bd63e472bfb6e5a7bc0dc48646c0c31420bd5a",
+          "accepted_artifact_hash": null,
+          "attempt": 3,
+          "checks": [
+            {
+              "name": "python_syntax",
+              "detail": null,
+              "pass": true
+            },
+            {
+              "name": "route:POST /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:GET /products",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /products/<int>",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:POST /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "route:GET /reservations",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": false
+            },
+            {
+              "name": "route:POST /reservations/<int>/cancel",
+              "detail": [
+                {
+                  "method": "GET",
+                  "path": "/products",
+                  "line": 23
+                },
+                {
+                  "method": "GET",
+                  "path": "/products/<int>",
+                  "line": 31
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations",
+                  "line": 41
+                },
+                {
+                  "method": "POST",
+                  "path": "/reservations/<int>/cancel",
+                  "line": 59
+                }
+              ],
+              "pass": true
+            },
+            {
+              "name": "inline_schema_static",
+              "detail": "unknown: no constant DDL; actual DB is checked after runtime",
+              "pass": true
+            },
+            {
+              "name": "http:startup_or_required_setup",
+              "pass": false,
+              "type": "RuntimeError",
+              "error": "application exited 1"
+            },
+            {
+              "name": "http:sqlite_integrity",
+              "pass": false,
+              "error": "SQLite DATABASE_PATH file missing",
+              "type": "AssertionError"
+            },
+            {
+              "name": "all_acceptance_tests",
+              "pass": false,
+              "error": "full acceptance failed"
+            }
+          ]
+        }
+      ],
+      "graph_changes": [],
+      "task_states": [
+        {
+          "id": "single",
+          "owner": "single_expert",
+          "output": "app.py",
+          "requires": [
+            "requirements"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "Python syntax",
+            "same endpoint methods",
+            "same SQLite schema and migration checks",
+            "all unchanged HTTP/SQLite acceptance tests"
+          ],
+          "status": "failed",
+          "attempt": 3,
+          "input_hash": "c6a75f4024795c76d9a9e43c56ca7c3ae86e8f78eff21e83a209abbec67849cb"
+        }
+      ],
+      "provider_stop": false,
+      "budget": {
+        "input_upper": 25824,
+        "output_reserved": 12288
+      },
+      "notes": "HTTP setup preconditions can block later tests. Only full unchanged acceptance pass is success; not-run tests are not counted as passed."
+    },
+    {
+      "milestone": "M0.2 — Contract-First Execution",
+      "run_id": "1793751112912-B-193ab2fe",
+      "arm": "B",
+      "protocol_hash": "a8f02e6b0e51e03c190ba1a65aa27e2f7f71c3783b24dd60000845d5956b7820",
+      "full_success": false,
+      "all_contracts_completed": false,
+      "acceptance_evaluated": false,
+      "passed_test_count": 0,
+      "executed_test_count": 0,
+      "first_failed_test": null,
+      "final_failed_test": null,
+      "first_artifact_failure": {
+        "name": "extraction_error",
+        "pass": false,
+        "error": "Expected one complete fenced block"
+      },
+      "initial_http_tests": [],
+      "final_http_tests": [],
+      "calls": 3,
+      "tokens": {
+        "input": 3348,
+        "output": 4608
+      },
+      "actual_neurons": 92.33098095282912,
+      "elapsed_ms": 27456,
+      "repairs": 2,
+      "artifact_validation_errors": [
+        {
+          "timestamp": "2026-11-04T00:11:56.952Z",
+          "event": "failed",
+          "task_id": "schema",
+          "owner": "schema_expert",
+          "attempt": 1,
+          "input_hash": "56025b5b7b73def5551d9e57d11b3be02d0a981b7b23d7663c5e12d31f75ed31",
+          "category": "extraction_error",
+          "message": "Expected one complete fenced block"
+        },
+        {
+          "timestamp": "2026-11-04T00:12:09.101Z",
+          "event": "failed",
+          "task_id": "schema",
+          "owner": "schema_expert",
+          "attempt": 2,
+          "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+          "category": "extraction_error",
+          "message": "Expected one complete fenced block"
+        },
+        {
+          "timestamp": "2026-11-04T00:12:20.368Z",
+          "event": "failed",
+          "task_id": "schema",
+          "owner": "schema_expert",
+          "attempt": 3,
+          "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+          "category": "extraction_error",
+          "message": "Expected one complete fenced block"
+        }
+      ],
+      "graph_changes": [],
+      "task_states": [
+        {
+          "id": "schema",
+          "owner": "schema_expert",
+          "output": "schema.sql",
+          "requires": [
+            "requirements"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "no duplicate tables",
+            "expected columns, keys and relations",
+            "SQLite first apply",
+            "independent migration second apply"
+          ],
+          "status": "failed",
+          "attempt": 3,
+          "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0"
+        },
+        {
+          "id": "validation",
+          "owner": "validation_expert",
+          "output": "validation.py",
+          "requires": [
+            "requirements"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "Python syntax",
+            "three declared signatures",
+            "sandbox behavioral interface checks"
+          ],
+          "status": "pending",
+          "attempt": 0
+        },
+        {
+          "id": "api",
+          "owner": "api_expert",
+          "output": "app.py",
+          "requires": [
+            "requirements",
+            "schema",
+            "validation"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "Python syntax",
+            "all endpoint methods",
+            "module interfaces",
+            "ownership",
+            "all unchanged HTTP/SQLite acceptance tests"
+          ],
+          "status": "pending",
+          "attempt": 0
+        }
+      ],
+      "provider_stop": false,
+      "budget": {
+        "input_upper": 17338,
+        "output_reserved": 4608
+      },
+      "notes": "HTTP setup preconditions can block later tests. Only full unchanged acceptance pass is success; not-run tests are not counted as passed."
+    },
+    {
+      "milestone": "M0.2 — Contract-First Execution",
+      "run_id": "1793751140371-C-d8a2d823",
+      "arm": "C",
+      "protocol_hash": "a8f02e6b0e51e03c190ba1a65aa27e2f7f71c3783b24dd60000845d5956b7820",
+      "full_success": false,
+      "all_contracts_completed": false,
+      "acceptance_evaluated": false,
+      "passed_test_count": 0,
+      "executed_test_count": 0,
+      "first_failed_test": null,
+      "final_failed_test": null,
+      "first_artifact_failure": {
+        "name": "extraction_error",
+        "pass": false,
+        "error": "Expected one complete fenced block"
+      },
+      "initial_http_tests": [],
+      "final_http_tests": [],
+      "calls": 3,
+      "tokens": {
+        "input": 3348,
+        "output": 4608
+      },
+      "actual_neurons": 92.33098095282912,
+      "elapsed_ms": 29069,
+      "repairs": 2,
+      "artifact_validation_errors": [
+        {
+          "timestamp": "2026-11-04T00:12:24.937Z",
+          "event": "failed",
+          "task_id": "schema",
+          "owner": "schema_expert",
+          "attempt": 1,
+          "input_hash": "56025b5b7b73def5551d9e57d11b3be02d0a981b7b23d7663c5e12d31f75ed31",
+          "category": "extraction_error",
+          "message": "Expected one complete fenced block"
+        },
+        {
+          "timestamp": "2026-11-04T00:12:34.796Z",
+          "event": "failed",
+          "task_id": "schema",
+          "owner": "schema_expert",
+          "attempt": 2,
+          "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+          "category": "extraction_error",
+          "message": "Expected one complete fenced block"
+        },
+        {
+          "timestamp": "2026-11-04T00:12:49.440Z",
+          "event": "failed",
+          "task_id": "schema",
+          "owner": "schema_expert",
+          "attempt": 3,
+          "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+          "category": "extraction_error",
+          "message": "Expected one complete fenced block"
+        }
+      ],
+      "graph_changes": [
+        {
+          "id": "repair:schema:1",
+          "owner": "schema_expert",
+          "depends_on": "schema",
+          "reason": "[{\"name\":\"extraction_error\",\"pass\":false,\"error\":\"Expected one complete fenced block\"}]"
+        },
+        {
+          "id": "repair:schema:2",
+          "owner": "schema_expert",
+          "depends_on": "schema",
+          "reason": "[{\"name\":\"extraction_error\",\"pass\":false,\"error\":\"Expected one complete fenced block\"}]"
+        }
+      ],
+      "task_states": [
+        {
+          "id": "schema",
+          "owner": "schema_expert",
+          "output": "schema.sql",
+          "requires": [
+            "requirements"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "no duplicate tables",
+            "expected columns, keys and relations",
+            "SQLite first apply",
+            "independent migration second apply"
+          ],
+          "status": "failed",
+          "attempt": 3,
+          "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0"
+        },
+        {
+          "id": "validation",
+          "owner": "validation_expert",
+          "output": "validation.py",
+          "requires": [
+            "requirements"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "Python syntax",
+            "three declared signatures",
+            "sandbox behavioral interface checks"
+          ],
+          "status": "pending",
+          "attempt": 0
+        },
+        {
+          "id": "api",
+          "owner": "api_expert",
+          "output": "app.py",
+          "requires": [
+            "requirements",
+            "schema",
+            "validation"
+          ],
+          "input_schema": {
+            "type": "object",
+            "required": [
+              "requirements",
+              "dependencies"
+            ]
+          },
+          "acceptance": [
+            "Python syntax",
+            "all endpoint methods",
+            "module interfaces",
+            "ownership",
+            "all unchanged HTTP/SQLite acceptance tests"
+          ],
+          "status": "pending",
+          "attempt": 0
+        }
+      ],
+      "provider_stop": false,
+      "budget": {
+        "input_upper": 17338,
+        "output_reserved": 4608
+      },
+      "notes": "HTTP setup preconditions can block later tests. Only full unchanged acceptance pass is success; not-run tests are not counted as passed."
+    }
+  ],
+  "complete": true,
+  "analysis": {
+    "protocol_unchanged": true,
+    "previous_experiments_unchanged": true,
+    "operational_metrics": [
+      {
+        "arm": "A",
+        "full_success": false,
+        "last_executed_test_pass_count": 0,
+        "last_executed_test_count": 2,
+        "first_failed_http_test": {
+          "name": "startup_or_required_setup",
+          "pass": false,
+          "type": "RuntimeError",
+          "error": "application exited 1"
+        },
+        "first_artifact_failure": {
+          "name": "route:POST /products",
+          "detail": [
+            {
+              "method": "GET",
+              "path": "/products",
+              "line": 23
+            },
+            {
+              "method": "GET",
+              "path": "/products/<int>",
+              "line": 31
+            },
+            {
+              "method": "POST",
+              "path": "/reservations",
+              "line": 41
+            },
+            {
+              "method": "POST",
+              "path": "/reservations/<int>/cancel",
+              "line": 56
+            }
+          ],
+          "pass": false
+        },
+        "calls": 1,
+        "tokens": {
+          "input": 1074,
+          "output": 669
+        },
+        "elapsed_ms": 5150,
+        "retries": 0,
+        "artifact_validation_error_events": 1,
+        "graph_changes": [],
+        "attempts": [
+          {
+            "task_id": "single",
+            "attempt": 1,
+            "input_hash": "3fe3ca68f995b17f450f44f4b2cfd8249912aabbfa5ae2f12355accfa3a42db2",
+            "request_messages_sha256": "2f43a8dabeff1eef4091358baaa22c90dd7f897e4a8fe5af4d30d5bd37e8ce3c",
+            "raw_sha256": "46faa662fa10e3a7c382d6c22b1166088c5afd52691b05269e941cbfae5d12e6",
+            "fence_markers": [
+              "```python",
+              "```"
+            ],
+            "raw_create_occurrences": {},
+            "output_tokens": 669,
+            "output_limit": 12288,
+            "at_output_limit": false,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          }
+        ],
+        "accepted_artifact_count": 0,
+        "raw_evidence_directory": "micro-swarm/m02/runs/1793751094117-A-e34c5ac3"
+      },
+      {
+        "arm": "A2",
+        "full_success": false,
+        "last_executed_test_pass_count": 0,
+        "last_executed_test_count": 2,
+        "first_failed_http_test": {
+          "name": "startup_or_required_setup",
+          "pass": false,
+          "type": "RuntimeError",
+          "error": "application exited 1"
+        },
+        "first_artifact_failure": {
+          "name": "route:POST /products",
+          "detail": [
+            {
+              "method": "GET",
+              "path": "/products",
+              "line": 23
+            },
+            {
+              "method": "GET",
+              "path": "/products/<int>",
+              "line": 31
+            },
+            {
+              "method": "POST",
+              "path": "/reservations",
+              "line": 41
+            },
+            {
+              "method": "POST",
+              "path": "/reservations/<int>/cancel",
+              "line": 59
+            }
+          ],
+          "pass": false
+        },
+        "calls": 3,
+        "tokens": {
+          "input": 5326,
+          "output": 2181
+        },
+        "elapsed_ms": 13638,
+        "retries": 2,
+        "artifact_validation_error_events": 3,
+        "graph_changes": [],
+        "attempts": [
+          {
+            "task_id": "single",
+            "attempt": 1,
+            "input_hash": "3fe3ca68f995b17f450f44f4b2cfd8249912aabbfa5ae2f12355accfa3a42db2",
+            "request_messages_sha256": "2f43a8dabeff1eef4091358baaa22c90dd7f897e4a8fe5af4d30d5bd37e8ce3c",
+            "raw_sha256": "79c4cd87083f180ad9ddcbd748ad86c6324c5fe0d28035335cd467f94999baab",
+            "fence_markers": [
+              "```python",
+              "```"
+            ],
+            "raw_create_occurrences": {},
+            "output_tokens": 727,
+            "output_limit": 6144,
+            "at_output_limit": false,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          },
+          {
+            "task_id": "single",
+            "attempt": 2,
+            "input_hash": "c6a75f4024795c76d9a9e43c56ca7c3ae86e8f78eff21e83a209abbec67849cb",
+            "request_messages_sha256": "8bee0aa848771a3af930b0d0a9636f18dd239a437fb8604a148b93a599ae1ea6",
+            "raw_sha256": "79c4cd87083f180ad9ddcbd748ad86c6324c5fe0d28035335cd467f94999baab",
+            "fence_markers": [
+              "```python",
+              "```"
+            ],
+            "raw_create_occurrences": {},
+            "output_tokens": 727,
+            "output_limit": 3072,
+            "at_output_limit": false,
+            "repair_has_previous_source": true,
+            "repair_has_full_stderr": false
+          },
+          {
+            "task_id": "single",
+            "attempt": 3,
+            "input_hash": "c6a75f4024795c76d9a9e43c56ca7c3ae86e8f78eff21e83a209abbec67849cb",
+            "request_messages_sha256": "8bee0aa848771a3af930b0d0a9636f18dd239a437fb8604a148b93a599ae1ea6",
+            "raw_sha256": "79c4cd87083f180ad9ddcbd748ad86c6324c5fe0d28035335cd467f94999baab",
+            "fence_markers": [
+              "```python",
+              "```"
+            ],
+            "raw_create_occurrences": {},
+            "output_tokens": 727,
+            "output_limit": 3072,
+            "at_output_limit": false,
+            "repair_has_previous_source": true,
+            "repair_has_full_stderr": false
+          }
+        ],
+        "accepted_artifact_count": 0,
+        "raw_evidence_directory": "micro-swarm/m02/runs/1793751099270-A2-3b082967"
+      },
+      {
+        "arm": "B",
+        "full_success": false,
+        "last_executed_test_pass_count": 0,
+        "last_executed_test_count": 0,
+        "first_failed_http_test": null,
+        "first_artifact_failure": {
+          "name": "extraction_error",
+          "pass": false,
+          "error": "Expected one complete fenced block"
+        },
+        "calls": 3,
+        "tokens": {
+          "input": 3348,
+          "output": 4608
+        },
+        "elapsed_ms": 27456,
+        "retries": 2,
+        "artifact_validation_error_events": 3,
+        "graph_changes": [],
+        "attempts": [
+          {
+            "task_id": "schema",
+            "attempt": 1,
+            "input_hash": "56025b5b7b73def5551d9e57d11b3be02d0a981b7b23d7663c5e12d31f75ed31",
+            "request_messages_sha256": "c8a2e4e69608cfc909a6286d26d475f9f2ad99bdf9b574f22b635b0fe6ad29cd",
+            "raw_sha256": "8b6e367940675ec6bd9f8c5266c41dd802f8e4929bf9a84cbdcd92f1701f2cb9",
+            "fence_markers": [
+              "```sql"
+            ],
+            "raw_create_occurrences": {
+              "products": 1,
+              "reservations": 26
+            },
+            "output_tokens": 768,
+            "output_limit": 768,
+            "at_output_limit": true,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          },
+          {
+            "task_id": "schema",
+            "attempt": 2,
+            "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+            "request_messages_sha256": "33119992402e18c20da511581dab8fb3c5168d767133c12f7c6cfbdc651902c2",
+            "raw_sha256": "2f00b45dae70902371b399cf2e0b8f039a98e50b31ffaaaa9376823e38d088c3",
+            "fence_markers": [
+              "```sql"
+            ],
+            "raw_create_occurrences": {
+              "products": 1,
+              "reservations": 66
+            },
+            "output_tokens": 1920,
+            "output_limit": 1920,
+            "at_output_limit": true,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          },
+          {
+            "task_id": "schema",
+            "attempt": 3,
+            "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+            "request_messages_sha256": "33119992402e18c20da511581dab8fb3c5168d767133c12f7c6cfbdc651902c2",
+            "raw_sha256": "2f00b45dae70902371b399cf2e0b8f039a98e50b31ffaaaa9376823e38d088c3",
+            "fence_markers": [
+              "```sql"
+            ],
+            "raw_create_occurrences": {
+              "products": 1,
+              "reservations": 66
+            },
+            "output_tokens": 1920,
+            "output_limit": 1920,
+            "at_output_limit": true,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          }
+        ],
+        "accepted_artifact_count": 0,
+        "raw_evidence_directory": "micro-swarm/m02/runs/1793751112912-B-193ab2fe"
+      },
+      {
+        "arm": "C",
+        "full_success": false,
+        "last_executed_test_pass_count": 0,
+        "last_executed_test_count": 0,
+        "first_failed_http_test": null,
+        "first_artifact_failure": {
+          "name": "extraction_error",
+          "pass": false,
+          "error": "Expected one complete fenced block"
+        },
+        "calls": 3,
+        "tokens": {
+          "input": 3348,
+          "output": 4608
+        },
+        "elapsed_ms": 29069,
+        "retries": 2,
+        "artifact_validation_error_events": 3,
+        "graph_changes": [
+          {
+            "id": "repair:schema:1",
+            "owner": "schema_expert",
+            "depends_on": "schema",
+            "reason": "[{\"name\":\"extraction_error\",\"pass\":false,\"error\":\"Expected one complete fenced block\"}]"
+          },
+          {
+            "id": "repair:schema:2",
+            "owner": "schema_expert",
+            "depends_on": "schema",
+            "reason": "[{\"name\":\"extraction_error\",\"pass\":false,\"error\":\"Expected one complete fenced block\"}]"
+          }
+        ],
+        "attempts": [
+          {
+            "task_id": "schema",
+            "attempt": 1,
+            "input_hash": "56025b5b7b73def5551d9e57d11b3be02d0a981b7b23d7663c5e12d31f75ed31",
+            "request_messages_sha256": "c8a2e4e69608cfc909a6286d26d475f9f2ad99bdf9b574f22b635b0fe6ad29cd",
+            "raw_sha256": "8b6e367940675ec6bd9f8c5266c41dd802f8e4929bf9a84cbdcd92f1701f2cb9",
+            "fence_markers": [
+              "```sql"
+            ],
+            "raw_create_occurrences": {
+              "products": 1,
+              "reservations": 26
+            },
+            "output_tokens": 768,
+            "output_limit": 768,
+            "at_output_limit": true,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          },
+          {
+            "task_id": "schema",
+            "attempt": 2,
+            "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+            "request_messages_sha256": "33119992402e18c20da511581dab8fb3c5168d767133c12f7c6cfbdc651902c2",
+            "raw_sha256": "2f00b45dae70902371b399cf2e0b8f039a98e50b31ffaaaa9376823e38d088c3",
+            "fence_markers": [
+              "```sql"
+            ],
+            "raw_create_occurrences": {
+              "products": 1,
+              "reservations": 66
+            },
+            "output_tokens": 1920,
+            "output_limit": 1920,
+            "at_output_limit": true,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          },
+          {
+            "task_id": "schema",
+            "attempt": 3,
+            "input_hash": "a9879e4ec772aec477e72a56d5e96381b2bbd08b2ccc92ae440d670f0f4d51f0",
+            "request_messages_sha256": "33119992402e18c20da511581dab8fb3c5168d767133c12f7c6cfbdc651902c2",
+            "raw_sha256": "2f00b45dae70902371b399cf2e0b8f039a98e50b31ffaaaa9376823e38d088c3",
+            "fence_markers": [
+              "```sql"
+            ],
+            "raw_create_occurrences": {
+              "products": 1,
+              "reservations": 66
+            },
+            "output_tokens": 1920,
+            "output_limit": 1920,
+            "at_output_limit": true,
+            "repair_has_previous_source": false,
+            "repair_has_full_stderr": false
+          }
+        ],
+        "accepted_artifact_count": 0,
+        "raw_evidence_directory": "micro-swarm/m02/runs/1793751140371-C-d8a2d823"
+      }
+    ],
+    "B_C_identical_prompts": true,
+    "B_C_identical_outputs": true,
+    "full_successes": 0,
+    "actual_neurons": 252.40580765530467,
+    "total_calls": 10,
+    "test_counts_note": "Counts refer to last executed acceptance attempt; startup failure blocks downstream business tests. Unreached tests are not passes.",
+    "implementation_limitations_found_after_freeze": [
+      "Runtime stderr is stored in traces but not relayed verbatim to repair prompts; only check diagnostics are sent.",
+      "Extraction failure has no parsed candidate, so previous_source is null on schema repair; failed raw response is stored but not resent.",
+      "SQL schema validation is not reached when a fence is incomplete.",
+      "No valid multi-role artifact completed; real integration/ownership rollback benefits remain unmeasured."
+    ]
+  }
+}
