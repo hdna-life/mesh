@@ -1,0 +1,13 @@
+{
+  "version": "M1-r1 bounded graph reconciliation",
+  "frozen_at": "2026-11-04T01:06:53.265Z",
+  "files": {
+    "config.json": "1d1ca458e405b01401007d899b734706396f554eee94385803784604bbd0aefe",
+    "PROTOCOL.md": "9245992c4d46c8be4d208bf331bc495c4fbe6a73a483e357c7d4a505c0700ebc",
+    "policy.ts": "25c583d9255edf04d3faaef9f791951941c9d8c7e02eea51c1ce63a70fa96138",
+    "policy.test.ts": "b59e2a51d11586720edd3cb4a52c2690bff801073a5079145aaf28294cbf049a",
+    "run.ts": "73f674530317835b64275a70d5c3b3f2c86b7a0f21aabbcd225fc156e1e35fc3",
+    "../frozen.json": "8d75695c00ad4b5a4154f4ca6f62339ce8adddbd1531d5845773217f9176cee5",
+    "../RESULTS.json": "cae2821bf51f93557e9f24e56c9c1ee2028b1d74963d7f97e237bd642a2721aa"
+  }
+}

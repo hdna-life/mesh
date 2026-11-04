@@ -1,0 +1,3077 @@
+{
+  "version": 1,
+  "entities": [
+    {
+      "name": "products",
+      "fields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true,
+          "primary": true,
+          "unique": true
+        },
+        {
+          "name": "sku",
+          "type": "text",
+          "required": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "required": true,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "name": "stock",
+          "type": "integer",
+          "required": true,
+          "primary": false,
+          "unique": false
+        }
+      ]
+    },
+    {
+      "name": "reservations",
+      "fields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true,
+          "primary": true,
+          "unique": true
+        },
+        {
+          "name": "product_id",
+          "type": "integer",
+          "required": true,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "required": true,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "name": "request_key",
+          "type": "text",
+          "required": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "required": true,
+          "primary": false,
+          "unique": false
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "entity": "reservations",
+      "field": "product_id",
+      "target": "products",
+      "target_field": "id"
+    }
+  ],
+  "operations": [
+    {
+      "id": "op_0",
+      "kind": "create",
+      "entity": "products",
+      "atomic": false,
+      "input": {
+        "fields": [
+          {
+            "name": "sku",
+            "type": "text",
+            "required": true,
+            "trim": false,
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "pattern": "[A-Z0-9-]{1,16}"
+          },
+          {
+            "name": "name",
+            "type": "text",
+            "required": true,
+            "trim": true,
+            "min": null,
+            "max": null,
+            "min_length": 1,
+            "max_length": 80,
+            "pattern": null
+          },
+          {
+            "name": "stock",
+            "type": "integer",
+            "required": true,
+            "trim": false,
+            "min": 0,
+            "max": 1000,
+            "min_length": null,
+            "max_length": null,
+            "pattern": null
+          }
+        ],
+        "exact": true
+      },
+      "success_status": 201,
+      "response_fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ],
+      "values": {
+        "sku": {
+          "ref": "input.sku"
+        },
+        "name": {
+          "ref": "input.name"
+        },
+        "stock": {
+          "ref": "input.stock"
+        }
+      },
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": null,
+      "order": [],
+      "transition": null
+    },
+    {
+      "id": "op_1",
+      "kind": "list",
+      "entity": "products",
+      "atomic": false,
+      "input": {
+        "fields": [],
+        "exact": false
+      },
+      "success_status": 200,
+      "response_fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ],
+      "values": {},
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": null,
+      "order": [
+        {
+          "field": "id",
+          "direction": "ASC"
+        }
+      ],
+      "transition": null
+    },
+    {
+      "id": "op_2",
+      "kind": "get",
+      "entity": "products",
+      "atomic": false,
+      "input": {
+        "fields": [],
+        "exact": false
+      },
+      "success_status": 200,
+      "response_fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ],
+      "values": {},
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": {
+        "ref": "path.id"
+      },
+      "order": [],
+      "transition": null
+    },
+    {
+      "id": "op_3",
+      "kind": "guarded_create",
+      "entity": "reservations",
+      "atomic": true,
+      "input": {
+        "fields": [
+          {
+            "name": "product_id",
+            "type": "integer",
+            "required": true,
+            "trim": false,
+            "min": 1,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "pattern": null
+          },
+          {
+            "name": "quantity",
+            "type": "integer",
+            "required": true,
+            "trim": false,
+            "min": 1,
+            "max": 100,
+            "min_length": null,
+            "max_length": null,
+            "pattern": null
+          },
+          {
+            "name": "request_key",
+            "type": "text",
+            "required": true,
+            "trim": false,
+            "min": null,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "pattern": "[A-Za-z0-9-]{1,64}"
+          }
+        ],
+        "exact": true
+      },
+      "success_status": 201,
+      "response_fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ],
+      "values": {
+        "product_id": {
+          "ref": "input.product_id"
+        },
+        "quantity": {
+          "ref": "input.quantity"
+        },
+        "request_key": {
+          "ref": "input.request_key"
+        },
+        "status": {
+          "lit": "active"
+        }
+      },
+      "lookups": [
+        {
+          "as": "resource",
+          "entity": "products",
+          "key": {
+            "ref": "input.product_id"
+          }
+        }
+      ],
+      "guards": [
+        {
+          "expr": {
+            "calc": "ge",
+            "args": [
+              {
+                "ref": "resource.stock"
+              },
+              {
+                "ref": "input.quantity"
+              }
+            ]
+          },
+          "error": "conflict"
+        }
+      ],
+      "effects": [
+        {
+          "record": "resource",
+          "values": {
+            "stock": {
+              "calc": "sub",
+              "args": [
+                {
+                  "ref": "resource.stock"
+                },
+                {
+                  "ref": "input.quantity"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "idempotency": {
+        "field": "request_key",
+        "input": {
+          "ref": "input.request_key"
+        },
+        "replay_status": 200
+      },
+      "key": null,
+      "order": [],
+      "transition": null
+    },
+    {
+      "id": "op_4",
+      "kind": "list",
+      "entity": "reservations",
+      "atomic": false,
+      "input": {
+        "fields": [],
+        "exact": false
+      },
+      "success_status": 200,
+      "response_fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ],
+      "values": {},
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": null,
+      "order": [
+        {
+          "field": "id",
+          "direction": "ASC"
+        }
+      ],
+      "transition": null
+    },
+    {
+      "id": "op_5",
+      "kind": "transition",
+      "entity": "reservations",
+      "atomic": true,
+      "input": {
+        "fields": [],
+        "exact": true
+      },
+      "success_status": 200,
+      "response_fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ],
+      "values": {},
+      "lookups": [
+        {
+          "as": "resource",
+          "entity": "products",
+          "key": {
+            "ref": "row.product_id"
+          }
+        }
+      ],
+      "guards": [],
+      "effects": [
+        {
+          "record": "resource",
+          "values": {
+            "stock": {
+              "calc": "add",
+              "args": [
+                {
+                  "ref": "resource.stock"
+                },
+                {
+                  "ref": "row.quantity"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "idempotency": null,
+      "key": {
+        "ref": "path.id"
+      },
+      "order": [],
+      "transition": {
+        "field": "status",
+        "from": "active",
+        "to": "cancelled",
+        "on_repeat": "return",
+        "repeat_status": 200
+      }
+    }
+  ],
+  "http": [
+    {
+      "method": "POST",
+      "path": "/products",
+      "operation": "op_0"
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "operation": "op_1"
+    },
+    {
+      "method": "GET",
+      "path": "/products/<int:id>",
+      "operation": "op_2"
+    },
+    {
+      "method": "POST",
+      "path": "/reservations",
+      "operation": "op_3"
+    },
+    {
+      "method": "GET",
+      "path": "/reservations",
+      "operation": "op_4"
+    },
+    {
+      "method": "POST",
+      "path": "/reservations/<int:id>/cancel",
+      "operation": "op_5"
+    }
+  ],
+  "errors": {
+    "invalid": 400,
+    "missing": 404,
+    "conflict": 409,
+    "internal": 500
+  },
+  "provenance": [
+    {
+      "decision": "entity_products",
+      "role": "Entity",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [],
+      "call_id": "gen-dec-1793754226-QhO8UaDamGP61p6R8VNC",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "entity_reservations",
+      "role": "Entity",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [],
+      "call_id": "gen-dec-1793754226-QhO8UaDamGP61p6R8VNC",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "pk_products",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_products_id",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_products_id",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_products_sku",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_products_sku",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_products_name",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_products_name",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_products_stock",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_products_stock",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "pk_reservations",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_reservations_id",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_reservations_id",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_reservations_product_id",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_reservations_product_id",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_reservations_quantity",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_reservations_quantity",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_reservations_request_key",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_reservations_request_key",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "type_reservations_status",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "required_reservations_status",
+      "role": "Field",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "entity_products",
+        "entity_reservations"
+      ],
+      "call_id": "gen-dec-1793754226-5PxXI1pjM75dJz94918S",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "relation_reservations_product_id",
+      "role": "Relationship",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "pk_products",
+        "type_products_id",
+        "required_products_id",
+        "type_products_sku",
+        "required_products_sku",
+        "type_products_name",
+        "required_products_name",
+        "type_products_stock",
+        "required_products_stock",
+        "pk_reservations",
+        "type_reservations_id",
+        "required_reservations_id",
+        "type_reservations_product_id",
+        "required_reservations_product_id",
+        "type_reservations_quantity",
+        "required_reservations_quantity",
+        "type_reservations_request_key",
+        "required_reservations_request_key",
+        "type_reservations_status",
+        "required_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754227-HYHwnRM9Q6AwoYDSykDQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_products_id",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_products_id",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_products_sku",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_products_sku",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_products_name",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_products_name",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_products_stock",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_products_stock",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_reservations_id",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_reservations_id",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_reservations_product_id",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_reservations_product_id",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_reservations_quantity",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_reservations_quantity",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_reservations_request_key",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_reservations_request_key",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "unique_reservations_status",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "rule_reservations_status",
+      "role": "Constraint",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "relation_reservations_product_id"
+      ],
+      "call_id": "gen-dec-1793754228-dCQDyTdZUiu5THPoqyuB",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "kind_0",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "target_0",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "kind_1",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "target_1",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "kind_2",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "target_2",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "kind_3",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "target_3",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "kind_4",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "target_4",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "kind_5",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "target_5",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "unique_products_id",
+        "rule_products_id",
+        "unique_products_sku",
+        "rule_products_sku",
+        "unique_products_name",
+        "rule_products_name",
+        "unique_products_stock",
+        "rule_products_stock",
+        "unique_reservations_id",
+        "rule_reservations_id",
+        "unique_reservations_product_id",
+        "rule_reservations_product_id",
+        "unique_reservations_quantity",
+        "rule_reservations_quantity",
+        "unique_reservations_request_key",
+        "rule_reservations_request_key",
+        "unique_reservations_status",
+        "rule_reservations_status"
+      ],
+      "call_id": "gen-dec-1793754229-S9JPsvZzwtS3mZujibBQ",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_0_sku",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_0_name",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_0_stock",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "order_1",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "direction_1",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "key_2",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_3_product_id",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_3_quantity",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_3_request_key",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "value_3_status",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "order_4",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "direction_4",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "key_5",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "state_field_5",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "from_5",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "to_5",
+      "role": "Operation",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "kind_0",
+        "target_0",
+        "kind_1",
+        "target_1",
+        "kind_2",
+        "target_2",
+        "kind_3",
+        "target_3",
+        "kind_4",
+        "target_4",
+        "kind_5",
+        "target_5"
+      ],
+      "call_id": "gen-dec-1793754230-MrMf2haAk6nZj2vk6IZ8",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "atomic_0",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "idempotency_0",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "atomic_1",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "atomic_2",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "atomic_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "idempotency_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "link_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "amount_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "counter_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "delta_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "guard_error_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "guard_3",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "atomic_4",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "atomic_5",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "repeat_5",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "link_5",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "amount_5",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "counter_5",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "delta_5",
+      "role": "Transaction",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "value_0_sku",
+        "value_0_name",
+        "value_0_stock",
+        "order_1",
+        "direction_1",
+        "key_2",
+        "value_3_product_id",
+        "value_3_quantity",
+        "value_3_request_key",
+        "value_3_status",
+        "order_4",
+        "direction_4",
+        "key_5",
+        "state_field_5",
+        "from_5",
+        "to_5"
+      ],
+      "call_id": "gen-dec-1793754231-pVafdfbRcif5928sAfE7",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "error_invalid",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "error_missing",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "error_conflict",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "error_internal",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "method_0",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "success_0",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "response_0",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "exact_0",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "input_0_sku",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "input_0_name",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "input_0_stock",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "method_1",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "success_1",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "response_1",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "exact_1",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "method_2",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "success_2",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "response_2",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "exact_2",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "method_3",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "success_3",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "response_3",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "exact_3",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "input_3_product_id",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "input_3_quantity",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "input_3_request_key",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "replay_3",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "method_4",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "success_4",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "response_4",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "exact_4",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "method_5",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754232-56esXv2glVkoGStZ4KNW",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "success_5",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754233-hf8DvxRaqfiSriYFddgF",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "response_5",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754233-hf8DvxRaqfiSriYFddgF",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "exact_5",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754233-hf8DvxRaqfiSriYFddgF",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "decision": "replay_5",
+      "role": "HTTP",
+      "source": "benchmarks/requirements.txt + human public symbol dictionary",
+      "dependencies": [
+        "atomic_0",
+        "idempotency_0",
+        "atomic_1",
+        "atomic_2",
+        "atomic_3",
+        "idempotency_3",
+        "link_3",
+        "amount_3",
+        "counter_3",
+        "delta_3",
+        "guard_error_3",
+        "guard_3",
+        "atomic_4",
+        "atomic_5",
+        "repeat_5",
+        "link_5",
+        "amount_5",
+        "counter_5",
+        "delta_5"
+      ],
+      "call_id": "gen-dec-1793754233-hf8DvxRaqfiSriYFddgF",
+      "model": "typesafe/jev-1.14-20261014"
+    },
+    {
+      "source": "Jev bounded graph reconciliation",
+      "model": "typesafe/jev-1.14-20261014",
+      "call_id": "gen-dec-1793754435-LXTLtz4t20XdULBFVLqE",
+      "changes": [
+        {
+          "entity": "reservations",
+          "field": "request_key",
+          "property": "unique",
+          "before": false,
+          "after": true,
+          "source": "Jev explicit resolution",
+          "answer": {
+            "value": "enforce_unique",
+            "probabilities": {
+              "enforce_unique": 0.96,
+              "drop_replay": 0.01,
+              "unresolved": 0.03
+            },
+            "confidence": 0.94,
+            "type": "choice"
+          }
+        }
+      ]
+    }
+  ],
+  "unresolved": []
+}

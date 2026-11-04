@@ -1,0 +1,1 @@
+{"model":"typesafe/jev-1.14","endpoint":"https://openrouter.ai/api/alpha/decisions","max_cost_usd":0.05,"max_requests":20,"max_questions_per_request":32,"price_usd_per_input_token":0.000000042,"max_payload_bytes":120000,"request_timeout_ms":30000,"max_reconsiderations":0,"noul_threshold":0.5,"choice_min_probability":0,"allow_generative_api":false}

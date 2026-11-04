@@ -1,0 +1,1 @@
+{"version":"M1-r1 bounded graph reconciliation","max_rounds":2,"total_cost_cap_usd_including_M1_and_smoke":0.05,"changes_allowed":["Jev-selected uniqueness declaration","Jev-selected removal of idempotency declaration"],"compiler_changes_allowed":false,"test_changes_allowed":false,"generative_models_allowed":false,"retain_M1_single_pass_negative":true}

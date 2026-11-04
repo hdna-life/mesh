@@ -1,0 +1,466 @@
+{
+  "milestone": "M1 — Jev Decision Mesh",
+  "phase_results": {
+    "initial_single_pass": {
+      "milestone": "M1 — Jev Decision Mesh",
+      "run_id": "backend-1793754226342",
+      "model": "typesafe/jev-1.14",
+      "semantic_decisions": 124,
+      "typed_valid_decisions": 124,
+      "conflicts": [
+        {
+          "reason": "Idempotency key must be unique",
+          "status": "unresolved",
+          "source": "deterministic IR consistency checker; no correction applied"
+        }
+      ],
+      "unresolved": [],
+      "ir_complete": false,
+      "compiler_created_application": false,
+      "compiler_output": null,
+      "backend_started": false,
+      "full_success": false,
+      "passed_tests": 0,
+      "executed_tests": 0,
+      "tests": [],
+      "inference_requests": 9,
+      "inference_ms": 7017.410209000001,
+      "semantic_api_cost_usd": 0.0012850319999999998,
+      "total_api_cost_usd_including_smoke": 0.0013008239999999997,
+      "total_reserved_usd": 0.028638959999999998,
+      "elapsed_ms": 7077,
+      "error": {
+        "category": "invalid_ir",
+        "message": "Idempotency key must be unique"
+      },
+      "compiler_errors": [
+        "Idempotency key must be unique"
+      ],
+      "mechanics_source": "Handwritten generic relational/validation/transaction/HTTP runtime; no task-specific entity names. Model supplies typed selections, not code.",
+      "model_free_controls": {
+        "human_complete_ir": "control-result.json",
+        "fixed_choice_and_empty": "control-policies.json"
+      },
+      "no_generative_model_used": true
+    },
+    "separately_frozen_reconciliation": {
+      "version": "M1-r1 bounded graph reconciliation",
+      "initial_M1_result_preserved": true,
+      "initial_semantic_decisions": 124,
+      "new_decisions": 1,
+      "rounds": 1,
+      "changes": [
+        {
+          "entity": "reservations",
+          "field": "request_key",
+          "property": "unique",
+          "before": false,
+          "after": true,
+          "source": "Jev explicit resolution",
+          "answer": {
+            "value": "enforce_unique",
+            "probabilities": {
+              "enforce_unique": 0.96,
+              "drop_replay": 0.01,
+              "unresolved": 0.03
+            },
+            "confidence": 0.94,
+            "type": "choice"
+          }
+        }
+      ],
+      "remaining_conflicts": [],
+      "ir_complete": true,
+      "compiler_created_application": true,
+      "backend_started": true,
+      "full_success": true,
+      "passed_tests": 41,
+      "executed_tests": 41,
+      "tests": [
+        {
+          "name": "initial_products_empty",
+          "pass": true
+        },
+        {
+          "name": "initial_reservations_empty",
+          "pass": true
+        },
+        {
+          "name": "product_shape",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_0",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_1",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_2",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_3",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_4",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_5",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_6",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_7",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_8",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_9",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_10",
+          "pass": true
+        },
+        {
+          "name": "duplicate_sku",
+          "pass": true
+        },
+        {
+          "name": "malformed_json",
+          "pass": true
+        },
+        {
+          "name": "missing_product",
+          "pass": true
+        },
+        {
+          "name": "product_boundaries",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_0",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_1",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_2",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_3",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_4",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_5",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_6",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_7",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_8",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_9",
+          "pass": true
+        },
+        {
+          "name": "missing_product_reservation",
+          "pass": true
+        },
+        {
+          "name": "reservation_shape",
+          "pass": true
+        },
+        {
+          "name": "stock_decrement",
+          "pass": true
+        },
+        {
+          "name": "idempotency_and_conflict",
+          "pass": true
+        },
+        {
+          "name": "insufficient_stock_atomic",
+          "pass": true
+        },
+        {
+          "name": "cancel_once_and_replay",
+          "pass": true
+        },
+        {
+          "name": "missing_cancel",
+          "pass": true
+        },
+        {
+          "name": "invalid_cancel",
+          "pass": true
+        },
+        {
+          "name": "concurrent_last_unit",
+          "pass": true
+        },
+        {
+          "name": "concurrent_idempotency",
+          "pass": true
+        },
+        {
+          "name": "product_order",
+          "pass": true
+        },
+        {
+          "name": "restart_persistence_and_idempotency",
+          "pass": true
+        },
+        {
+          "name": "sqlite_integrity",
+          "pass": true
+        }
+      ],
+      "new_api_cost_usd": 8.8536e-05,
+      "total_api_cost_usd_including_M1_smoke": 0.0013893599999999996,
+      "elapsed_ms": 1737,
+      "error": null,
+      "run_directory": "/Users/berdincozer/Desktop/mesh/micro-swarm/m1/reconciliation/runs/1793754434868",
+      "compiler_changed": false,
+      "tests_changed": false
+    }
+  },
+  "semantic_decisions_total": 125,
+  "typed_valid_decisions_total": 125,
+  "active_resolved_decisions": 124,
+  "superseded_decisions": 1,
+  "observed_conflicts": 1,
+  "remaining_conflicts": 0,
+  "ir_complete": true,
+  "compiler_created_application": true,
+  "backend_started": true,
+  "full_success": true,
+  "passed_tests": 41,
+  "executed_tests": 41,
+  "api": {
+    "requests": 11,
+    "input_tokens": 33080,
+    "output_tokens": 7148,
+    "cost_usd": 0.0013893599999999996,
+    "latency_ms": 9938.725543000002,
+    "model_versions": [
+      "typesafe/jev-1.14-20261014"
+    ]
+  },
+  "elapsed_main_and_reconciliation_ms": 8814,
+  "scope": "One public-symbol, closed-grammar inventory task; generic compiler supplies implementation mechanics. Not general intelligence, sub-billion parameter proof, or physical expert network evidence.",
+  "initial_negative_preserved": true,
+  "model_free_controls": {
+    "human_complete_ir": {
+      "control": "human-ir-no-jev",
+      "model_calls": 0,
+      "passed": true,
+      "tests": [
+        {
+          "name": "initial_products_empty",
+          "pass": true
+        },
+        {
+          "name": "initial_reservations_empty",
+          "pass": true
+        },
+        {
+          "name": "product_shape",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_0",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_1",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_2",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_3",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_4",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_5",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_6",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_7",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_8",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_9",
+          "pass": true
+        },
+        {
+          "name": "invalid_product_10",
+          "pass": true
+        },
+        {
+          "name": "duplicate_sku",
+          "pass": true
+        },
+        {
+          "name": "malformed_json",
+          "pass": true
+        },
+        {
+          "name": "missing_product",
+          "pass": true
+        },
+        {
+          "name": "product_boundaries",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_0",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_1",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_2",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_3",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_4",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_5",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_6",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_7",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_8",
+          "pass": true
+        },
+        {
+          "name": "invalid_reservation_9",
+          "pass": true
+        },
+        {
+          "name": "missing_product_reservation",
+          "pass": true
+        },
+        {
+          "name": "reservation_shape",
+          "pass": true
+        },
+        {
+          "name": "stock_decrement",
+          "pass": true
+        },
+        {
+          "name": "idempotency_and_conflict",
+          "pass": true
+        },
+        {
+          "name": "insufficient_stock_atomic",
+          "pass": true
+        },
+        {
+          "name": "cancel_once_and_replay",
+          "pass": true
+        },
+        {
+          "name": "missing_cancel",
+          "pass": true
+        },
+        {
+          "name": "invalid_cancel",
+          "pass": true
+        },
+        {
+          "name": "concurrent_last_unit",
+          "pass": true
+        },
+        {
+          "name": "concurrent_idempotency",
+          "pass": true
+        },
+        {
+          "name": "product_order",
+          "pass": true
+        },
+        {
+          "name": "restart_persistence_and_idempotency",
+          "pass": true
+        },
+        {
+          "name": "sqlite_integrity",
+          "pass": true
+        }
+      ],
+      "warning": "This is supplied human semantics, NOT Jev success."
+    },
+    "fixed_policy_and_empty": {
+      "empty_graph": {
+        "compiler_valid": false,
+        "reason": "unresolved decisions; no defaults"
+      },
+      "fixed_first_choice": {
+        "model_calls": 0,
+        "synthetic_policy_choices": 117,
+        "compiler_valid": false,
+        "reason": "Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Conflicting HTTP bindings"
+      }
+    }
+  },
+  "exported_application_sha256": "0c760fa4b11cea4fdd3e38c08c5d1db134575ac74646dade120617350c17620e"
+}

@@ -1,0 +1,89 @@
+{
+  "symbol_source": "human public M0 inventory requirements and M0.2 contract.json (not golden reference)",
+  "entities": [
+    {
+      "name": "products",
+      "fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ]
+    },
+    {
+      "name": "reservations",
+      "fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/products",
+      "body": [
+        "sku",
+        "name",
+        "stock"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "body": []
+    },
+    {
+      "method": "GET",
+      "path": "/products/<int:id>",
+      "body": []
+    },
+    {
+      "method": "POST",
+      "path": "/reservations",
+      "body": [
+        "product_id",
+        "quantity",
+        "request_key"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reservations",
+      "body": []
+    },
+    {
+      "method": "POST",
+      "path": "/reservations/<int:id>/cancel",
+      "body": []
+    }
+  ],
+  "literals": {
+    "numbers": [
+      0,
+      1,
+      16,
+      64,
+      80,
+      100,
+      1000
+    ],
+    "strings": [
+      "active",
+      "cancelled"
+    ],
+    "patterns": [
+      "[A-Z0-9-]{1,16}",
+      "[A-Za-z0-9-]{1,64}"
+    ]
+  },
+  "provenance": {
+    "public_contract_sha256": "985a7fb36c475e78bdc4acc130461d156769aba7d4bd36ea6efbcc235972f81a",
+    "field_names": "explicit human entity/response declarations",
+    "paths_and_input_names": "explicit human HTTP contract",
+    "literal_pool": "explicit public bounds, states and identifier patterns"
+  }
+}

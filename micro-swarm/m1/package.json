@@ -1,0 +1,1 @@
+{"name":"mesh-m1-jev","private":true,"type":"module","engines":{"node":">=24"},"scripts":{"smoke":"node src/cli.ts smoke","test":"node --test tests/*.test.ts","integration":"node --test tests/*.integration.ts","freeze":"node src/cli.ts freeze","run":"node src/cli.ts run"}}

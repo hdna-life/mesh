@@ -1,0 +1,9 @@
+export type Scalar='integer'|'text'|'boolean';
+export type Expr={ref:string}|{lit:string|number|boolean|null}|{calc:'add'|'sub'|'ge'|'le'|'eq'|'ne'|'and';args:Expr[]};
+export type Field={name:string;type:Scalar;primary:boolean;required:boolean;unique:boolean};
+export type Rule={name:string;type:Scalar;required:boolean;trim:boolean;min:number|null;max:number|null;min_length:number|null;max_length:number|null;pattern:string|null};
+export type Entity={name:string;fields:Field[]};
+export type Relationship={entity:string;field:string;target:string;target_field:string};
+export type Operation={id:string;kind:'create'|'guarded_create'|'list'|'get'|'transition';entity:string;atomic:boolean;input:{fields:Rule[];exact:boolean};success_status:number;response_fields:string[];values:Record<string,Expr>;lookups:{as:string;entity:string;key:Expr}[];guards:{expr:Expr;error:string}[];effects:{record:string;values:Record<string,Expr>}[];idempotency:null|{field:string;input:Expr;replay_status:number};key:Expr|null;order:{field:string;direction:'ASC'|'DESC'}[];transition:null|{field:string;from:string;to:string;on_repeat:'return'|'error';repeat_status:number}};
+export type IR={version:1;entities:Entity[];relationships:Relationship[];operations:Operation[];http:{method:string;path:string;operation:string}[];errors:Record<'invalid'|'missing'|'conflict'|'internal',number>;provenance:unknown[];unresolved:unknown[]};
+export class IRError extends Error {category:string;constructor(category:string,message:string){super(message);this.category=category;}}

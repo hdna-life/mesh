@@ -1,0 +1,42 @@
+{
+  "milestone": "M1 — Jev Decision Mesh",
+  "run_id": "backend-1793754226342",
+  "model": "typesafe/jev-1.14",
+  "semantic_decisions": 124,
+  "typed_valid_decisions": 124,
+  "conflicts": [
+    {
+      "reason": "Idempotency key must be unique",
+      "status": "unresolved",
+      "source": "deterministic IR consistency checker; no correction applied"
+    }
+  ],
+  "unresolved": [],
+  "ir_complete": false,
+  "compiler_created_application": false,
+  "compiler_output": null,
+  "backend_started": false,
+  "full_success": false,
+  "passed_tests": 0,
+  "executed_tests": 0,
+  "tests": [],
+  "inference_requests": 9,
+  "inference_ms": 7017.410209000001,
+  "semantic_api_cost_usd": 0.0012850319999999998,
+  "total_api_cost_usd_including_smoke": 0.0013008239999999997,
+  "total_reserved_usd": 0.028638959999999998,
+  "elapsed_ms": 7077,
+  "error": {
+    "category": "invalid_ir",
+    "message": "Idempotency key must be unique"
+  },
+  "compiler_errors": [
+    "Idempotency key must be unique"
+  ],
+  "mechanics_source": "Handwritten generic relational/validation/transaction/HTTP runtime; no task-specific entity names. Model supplies typed selections, not code.",
+  "model_free_controls": {
+    "human_complete_ir": "control-result.json",
+    "fixed_choice_and_empty": "control-policies.json"
+  },
+  "no_generative_model_used": true
+}

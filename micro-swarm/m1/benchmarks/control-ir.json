@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "entities": [
+    {
+      "name": "products",
+      "fields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "primary": true,
+          "required": true,
+          "unique": false
+        },
+        {
+          "name": "sku",
+          "type": "text",
+          "primary": false,
+          "required": true,
+          "unique": true
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "primary": false,
+          "required": true,
+          "unique": false
+        },
+        {
+          "name": "stock",
+          "type": "integer",
+          "primary": false,
+          "required": true,
+          "unique": false
+        }
+      ]
+    },
+    {
+      "name": "reservations",
+      "fields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "primary": true,
+          "required": true,
+          "unique": false
+        },
+        {
+          "name": "product_id",
+          "type": "integer",
+          "primary": false,
+          "required": true,
+          "unique": false
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "primary": false,
+          "required": true,
+          "unique": false
+        },
+        {
+          "name": "request_key",
+          "type": "text",
+          "primary": false,
+          "required": true,
+          "unique": true
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "primary": false,
+          "required": true,
+          "unique": false
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "entity": "reservations",
+      "field": "product_id",
+      "target": "products",
+      "target_field": "id"
+    }
+  ],
+  "operations": [
+    {
+      "id": "op_0",
+      "kind": "create",
+      "entity": "products",
+      "atomic": true,
+      "input": {
+        "fields": [
+          {
+            "name": "sku",
+            "type": "text",
+            "required": true,
+            "trim": false,
+            "min": null,
+            "max": null,
+            "min_length": 1,
+            "max_length": 16,
+            "pattern": "[A-Z0-9-]{1,16}"
+          },
+          {
+            "name": "name",
+            "type": "text",
+            "required": true,
+            "trim": true,
+            "min": null,
+            "max": null,
+            "min_length": 1,
+            "max_length": 80,
+            "pattern": null
+          },
+          {
+            "name": "stock",
+            "type": "integer",
+            "required": true,
+            "trim": false,
+            "min": 0,
+            "max": 1000,
+            "min_length": null,
+            "max_length": null,
+            "pattern": null
+          }
+        ],
+        "exact": true
+      },
+      "success_status": 201,
+      "values": {
+        "sku": {
+          "ref": "input.sku"
+        },
+        "name": {
+          "ref": "input.name"
+        },
+        "stock": {
+          "ref": "input.stock"
+        }
+      },
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": null,
+      "order": [],
+      "transition": null,
+      "response_fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ]
+    },
+    {
+      "id": "op_1",
+      "kind": "list",
+      "entity": "products",
+      "atomic": false,
+      "input": {
+        "fields": [],
+        "exact": true
+      },
+      "success_status": 200,
+      "values": {},
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": null,
+      "order": [
+        {
+          "field": "id",
+          "direction": "ASC"
+        }
+      ],
+      "transition": null,
+      "response_fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ]
+    },
+    {
+      "id": "op_2",
+      "kind": "get",
+      "entity": "products",
+      "atomic": false,
+      "input": {
+        "fields": [],
+        "exact": true
+      },
+      "success_status": 200,
+      "values": {},
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": {
+        "ref": "path.id"
+      },
+      "order": [],
+      "transition": null,
+      "response_fields": [
+        "id",
+        "sku",
+        "name",
+        "stock"
+      ]
+    },
+    {
+      "id": "op_3",
+      "kind": "guarded_create",
+      "entity": "reservations",
+      "atomic": true,
+      "input": {
+        "fields": [
+          {
+            "name": "product_id",
+            "type": "integer",
+            "required": true,
+            "trim": false,
+            "min": 1,
+            "max": null,
+            "min_length": null,
+            "max_length": null,
+            "pattern": null
+          },
+          {
+            "name": "quantity",
+            "type": "integer",
+            "required": true,
+            "trim": false,
+            "min": 1,
+            "max": 100,
+            "min_length": null,
+            "max_length": null,
+            "pattern": null
+          },
+          {
+            "name": "request_key",
+            "type": "text",
+            "required": true,
+            "trim": false,
+            "min": null,
+            "max": null,
+            "min_length": 1,
+            "max_length": 64,
+            "pattern": "[A-Za-z0-9-]{1,64}"
+          }
+        ],
+        "exact": true
+      },
+      "success_status": 201,
+      "values": {
+        "product_id": {
+          "ref": "input.product_id"
+        },
+        "quantity": {
+          "ref": "input.quantity"
+        },
+        "request_key": {
+          "ref": "input.request_key"
+        },
+        "status": {
+          "lit": "active"
+        }
+      },
+      "lookups": [
+        {
+          "as": "resource",
+          "entity": "products",
+          "key": {
+            "ref": "input.product_id"
+          }
+        }
+      ],
+      "guards": [
+        {
+          "expr": {
+            "calc": "ge",
+            "args": [
+              {
+                "ref": "resource.stock"
+              },
+              {
+                "ref": "input.quantity"
+              }
+            ]
+          },
+          "error": "conflict"
+        }
+      ],
+      "effects": [
+        {
+          "record": "resource",
+          "values": {
+            "stock": {
+              "calc": "sub",
+              "args": [
+                {
+                  "ref": "resource.stock"
+                },
+                {
+                  "ref": "input.quantity"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "idempotency": {
+        "field": "request_key",
+        "input": {
+          "ref": "input.request_key"
+        },
+        "replay_status": 200
+      },
+      "key": null,
+      "order": [],
+      "transition": null,
+      "response_fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ]
+    },
+    {
+      "id": "op_4",
+      "kind": "list",
+      "entity": "reservations",
+      "atomic": false,
+      "input": {
+        "fields": [],
+        "exact": true
+      },
+      "success_status": 200,
+      "values": {},
+      "lookups": [],
+      "guards": [],
+      "effects": [],
+      "idempotency": null,
+      "key": null,
+      "order": [
+        {
+          "field": "id",
+          "direction": "ASC"
+        }
+      ],
+      "transition": null,
+      "response_fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ]
+    },
+    {
+      "id": "op_5",
+      "kind": "transition",
+      "entity": "reservations",
+      "atomic": true,
+      "input": {
+        "fields": [],
+        "exact": true
+      },
+      "success_status": 200,
+      "values": {},
+      "lookups": [
+        {
+          "as": "resource",
+          "entity": "products",
+          "key": {
+            "ref": "row.product_id"
+          }
+        }
+      ],
+      "guards": [],
+      "effects": [
+        {
+          "record": "resource",
+          "values": {
+            "stock": {
+              "calc": "add",
+              "args": [
+                {
+                  "ref": "resource.stock"
+                },
+                {
+                  "ref": "row.quantity"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "idempotency": null,
+      "key": {
+        "ref": "path.id"
+      },
+      "order": [],
+      "transition": {
+        "field": "status",
+        "from": "active",
+        "to": "cancelled",
+        "on_repeat": "return",
+        "repeat_status": 200
+      },
+      "response_fields": [
+        "id",
+        "product_id",
+        "quantity",
+        "request_key",
+        "status"
+      ]
+    }
+  ],
+  "http": [
+    {
+      "method": "POST",
+      "path": "/products",
+      "operation": "op_0"
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "operation": "op_1"
+    },
+    {
+      "method": "GET",
+      "path": "/products/<int:id>",
+      "operation": "op_2"
+    },
+    {
+      "method": "POST",
+      "path": "/reservations",
+      "operation": "op_3"
+    },
+    {
+      "method": "GET",
+      "path": "/reservations",
+      "operation": "op_4"
+    },
+    {
+      "method": "POST",
+      "path": "/reservations/<int:id>/cancel",
+      "operation": "op_5"
+    }
+  ],
+  "errors": {
+    "invalid": 400,
+    "missing": 404,
+    "conflict": 409,
+    "internal": 500
+  },
+  "provenance": [
+    {
+      "source": "human-complete IR test fixture; never supplied to Jev"
+    }
+  ],
+  "unresolved": []
+}

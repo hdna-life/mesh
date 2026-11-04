@@ -1,0 +1,12 @@
+{
+  "empty_graph": {
+    "compiler_valid": false,
+    "reason": "unresolved decisions; no defaults"
+  },
+  "fixed_first_choice": {
+    "model_calls": 0,
+    "synthetic_policy_choices": 117,
+    "compiler_valid": false,
+    "reason": "Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Unresolved value products.sku; Unresolved value products.name; Unresolved value products.stock; Conflicting HTTP bindings"
+  }
+}

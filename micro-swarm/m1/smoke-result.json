@@ -1,0 +1,28 @@
+{
+  "decisions": {
+    "storage": {
+      "value": "sqlite",
+      "probabilities": {
+        "sqlite": 1,
+        "remote": 0
+      },
+      "confidence": 1,
+      "type": "choice"
+    },
+    "persistent": {
+      "value": true,
+      "probability": 0.98,
+      "type": "noul"
+    }
+  },
+  "model": "typesafe/jev-1.14-20261014",
+  "cost_usd": 0.000015792,
+  "latency_ms": 2385.265292,
+  "usage": {
+    "input_tokens": 376,
+    "output_tokens": 48,
+    "cost": 0.000015792
+  },
+  "id": "gen-dec-1793752798-nghWkSRZ4NvDpPWnWXAg",
+  "provider": "TypeSafe"
+}

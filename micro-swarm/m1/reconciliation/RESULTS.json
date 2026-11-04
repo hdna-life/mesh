@@ -1,0 +1,207 @@
+{
+  "version": "M1-r1 bounded graph reconciliation",
+  "initial_M1_result_preserved": true,
+  "initial_semantic_decisions": 124,
+  "new_decisions": 1,
+  "rounds": 1,
+  "changes": [
+    {
+      "entity": "reservations",
+      "field": "request_key",
+      "property": "unique",
+      "before": false,
+      "after": true,
+      "source": "Jev explicit resolution",
+      "answer": {
+        "value": "enforce_unique",
+        "probabilities": {
+          "enforce_unique": 0.96,
+          "drop_replay": 0.01,
+          "unresolved": 0.03
+        },
+        "confidence": 0.94,
+        "type": "choice"
+      }
+    }
+  ],
+  "remaining_conflicts": [],
+  "ir_complete": true,
+  "compiler_created_application": true,
+  "backend_started": true,
+  "full_success": true,
+  "passed_tests": 41,
+  "executed_tests": 41,
+  "tests": [
+    {
+      "name": "initial_products_empty",
+      "pass": true
+    },
+    {
+      "name": "initial_reservations_empty",
+      "pass": true
+    },
+    {
+      "name": "product_shape",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_0",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_1",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_2",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_3",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_4",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_5",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_6",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_7",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_8",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_9",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_10",
+      "pass": true
+    },
+    {
+      "name": "duplicate_sku",
+      "pass": true
+    },
+    {
+      "name": "malformed_json",
+      "pass": true
+    },
+    {
+      "name": "missing_product",
+      "pass": true
+    },
+    {
+      "name": "product_boundaries",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_0",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_1",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_2",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_3",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_4",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_5",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_6",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_7",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_8",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_9",
+      "pass": true
+    },
+    {
+      "name": "missing_product_reservation",
+      "pass": true
+    },
+    {
+      "name": "reservation_shape",
+      "pass": true
+    },
+    {
+      "name": "stock_decrement",
+      "pass": true
+    },
+    {
+      "name": "idempotency_and_conflict",
+      "pass": true
+    },
+    {
+      "name": "insufficient_stock_atomic",
+      "pass": true
+    },
+    {
+      "name": "cancel_once_and_replay",
+      "pass": true
+    },
+    {
+      "name": "missing_cancel",
+      "pass": true
+    },
+    {
+      "name": "invalid_cancel",
+      "pass": true
+    },
+    {
+      "name": "concurrent_last_unit",
+      "pass": true
+    },
+    {
+      "name": "concurrent_idempotency",
+      "pass": true
+    },
+    {
+      "name": "product_order",
+      "pass": true
+    },
+    {
+      "name": "restart_persistence_and_idempotency",
+      "pass": true
+    },
+    {
+      "name": "sqlite_integrity",
+      "pass": true
+    }
+  ],
+  "new_api_cost_usd": 0.000088536,
+  "total_api_cost_usd_including_M1_smoke": 0.0013893599999999996,
+  "elapsed_ms": 1737,
+  "error": null,
+  "run_directory": "/Users/berdincozer/Desktop/mesh/micro-swarm/m1/reconciliation/runs/1793754434868",
+  "compiler_changed": false,
+  "tests_changed": false
+}

@@ -1,0 +1,180 @@
+{
+  "passed": true,
+  "evaluated": true,
+  "category": null,
+  "sandbox": {
+    "engine": "macOS Seatbelt",
+    "calibrated": true,
+    "error": null,
+    "limits": "CPU 12s, wall timeout, 2MiB/file, 96 FDs; RSS 256MiB/process-group 8 monitored every 200ms (not kernel hard limits); installed system files readable"
+  },
+  "tests": [
+    {
+      "name": "initial_products_empty",
+      "pass": true
+    },
+    {
+      "name": "initial_reservations_empty",
+      "pass": true
+    },
+    {
+      "name": "product_shape",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_0",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_1",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_2",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_3",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_4",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_5",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_6",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_7",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_8",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_9",
+      "pass": true
+    },
+    {
+      "name": "invalid_product_10",
+      "pass": true
+    },
+    {
+      "name": "duplicate_sku",
+      "pass": true
+    },
+    {
+      "name": "malformed_json",
+      "pass": true
+    },
+    {
+      "name": "missing_product",
+      "pass": true
+    },
+    {
+      "name": "product_boundaries",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_0",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_1",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_2",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_3",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_4",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_5",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_6",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_7",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_8",
+      "pass": true
+    },
+    {
+      "name": "invalid_reservation_9",
+      "pass": true
+    },
+    {
+      "name": "missing_product_reservation",
+      "pass": true
+    },
+    {
+      "name": "reservation_shape",
+      "pass": true
+    },
+    {
+      "name": "stock_decrement",
+      "pass": true
+    },
+    {
+      "name": "idempotency_and_conflict",
+      "pass": true
+    },
+    {
+      "name": "insufficient_stock_atomic",
+      "pass": true
+    },
+    {
+      "name": "cancel_once_and_replay",
+      "pass": true
+    },
+    {
+      "name": "missing_cancel",
+      "pass": true
+    },
+    {
+      "name": "invalid_cancel",
+      "pass": true
+    },
+    {
+      "name": "concurrent_last_unit",
+      "pass": true
+    },
+    {
+      "name": "concurrent_idempotency",
+      "pass": true
+    },
+    {
+      "name": "product_order",
+      "pass": true
+    },
+    {
+      "name": "restart_persistence_and_idempotency",
+      "pass": true
+    },
+    {
+      "name": "sqlite_integrity",
+      "pass": true
+    }
+  ],
+  "stdout_stderr": " * Serving Flask app 'app'\n * Debug mode: off\n\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on http://127.0.0.1:63538\n\u001b[33mPress CTRL+C to quit\u001b[0m\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 409 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[33mGET /products/999999 HTTP/1.1\u001b[0m\" 404 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 409 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[33mPOST /reservations HTTP/1.1\u001b[0m\" 404 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 409 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 409 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/4 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 409 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations/1/cancel HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations/1/cancel HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[33mPOST /reservations/999999/cancel HTTP/1.1\u001b[0m\" 404 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations/1/cancel HTTP/1.1\u001b[0m\" 400 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[31m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 409 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/5 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /products HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"\u001b[35m\u001b[1mPOST /reservations HTTP/1.1\u001b[0m\" 201 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/6 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n * Serving Flask app 'app'\n * Debug mode: off\n\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on http://127.0.0.1:63538\n\u001b[33mPress CTRL+C to quit\u001b[0m\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"POST /reservations/1/cancel HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products/1 HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /products HTTP/1.1\" 200 -\n127.0.0.1 - - [04/Nov/2026 04:07:16] \"GET /reservations HTTP/1.1\" 200 -\n",
+  "exit_code": 0,
+  "elapsed_ms": 1028
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-11-04T01:02:14.614010+00:00",
+  "unit_passed": true,
+  "unit_tests": 15,
+  "compiler_control_passed": true,
+  "compiler_control_tests": 41,
+  "no_jev_control": true,
+  "fixed_first_policy_rejected": true,
+  "golden_source_used_in_generation": false,
+  "preflight_revision_note": "Added explicit unsupported alternative for every choice before first backend inference; smoke result unchanged."
+}
